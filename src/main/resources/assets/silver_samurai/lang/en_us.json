@@ -1,0 +1,11 @@
+{
+  "entity.silver_samurai.silver_samurai": "银色武士",
+  "entity.silver_samurai.debris": "银色武士战损残骸",
+  "death.attack.silver_samurai.red_blade": "%1$s 被银色武士的红刃斩杀",
+  "death.attack.silver_samurai.red_blade.player": "%1$s 在与 %2$s 战斗时被红刃斩杀",
+  "subtitles.silver_samurai.red_cut": "红刃切割",
+  "effect.silver_samurai.red_blade_wound": "Red Blade Wound",
+  "subtitles.silver_samurai.armor_scrape": "Armor clanks",
+  "subtitles.silver_samurai.armor_groan": "Heavy armor clanks",
+  "subtitles.silver_samurai.heavy_slam": "Heavy blade impacts"
+}

@@ -1,0 +1,67 @@
+// Test-only setup. Release JARs include neither fixtures nor test classes.
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+def obsolete = project.properties.keySet().findAll { it ==~ /focus.*|baselineR[0-9]+|fullWallRegression|terrainR53|clawR54|acceptanceR56/ }
+if (!obsolete.isEmpty()) throw new GradleException("Replaced test flags ${obsolete}; use -PtestSuite=full, compat, terrain or rNN")
+def suite = (project.findProperty('testSuite') ?: 'base').toString()
+def full = ['silver_samurai'] + ([43,44,45,46,47,48,49,50,51,52,53,54,56,59].collect { "silver_samurai_r${it}" })
+def suites = [base:['silver_samurai'], full:full, compat:['silver_samurai','silver_samurai_r56','silver_samurai_r59'],
+              terrain:['silver_samurai_r47','silver_samurai_r53'], flow:['silver_samurai_focus'],
+              gait:['silver_samurai_gait'], sidekick:['silver_samurai_sidekick']]
+def namespaces = suites[suite]
+if (namespaces == null && suite ==~ /r[0-9]+/ && file("src/gametest/resources/data/silver_samurai_${suite}").isDirectory()) {
+    namespaces = ["silver_samurai_${suite}"]
+}
+if (namespaces == null) throw new GradleException("Unknown testSuite '${suite}'; use base, full, compat, terrain, flow, gait, sidekick or an existing rNN suite")
+minecraft.runs {
+    gameTestServer {
+        workingDirectory project.file(project.findProperty('gameTestDir') ?: 'run-gametest')
+        property 'forge.enabledGameTestNamespaces', namespaces.join(',')
+        property 'file.encoding', 'UTF-8'
+        mods { silver_samurai { source sourceSets.main; source sourceSets.gametest } }
+    }
+}
+// Resolve exactly the supplied installed version, or detect a single installed Wolverine JAR.
+if (project.hasProperty('wolverineModsDir')) {
+    def directory = file(project.property('wolverineModsDir'))
+    def version = project.findProperty('wolverineVersion')
+    if (!version) {
+        def jars = fileTree(directory).matching { include 'wolverine-forge-1.20.1-*.jar' }.files
+        if (jars.size() != 1) throw new GradleException('Specify wolverineVersion when the supplied mods directory does not contain exactly one Wolverine JAR')
+        version = jars.first().name.replaceFirst(/^wolverine-forge-1\.20\.1-/, '').replaceFirst(/\.jar$/, '')
+    }
+    if (!new File(directory,"wolverine-forge-1.20.1-${version}.jar").isFile()) throw new GradleException("Missing Wolverine JAR for ${version}")
+    repositories { flatDir { dirs directory } }
+    dependencies { runtimeOnly fg.deobf("local:wolverine-forge-1.20.1:${version}") }
+}
+if (project.hasProperty('deceasedCompat')) {
+    repositories { flatDir { dirs project.file('../test-libs') } }
+    dependencies {
+        runtimeOnly fg.deobf('local:DeceasedBeast:0.5c')
+        runtimeOnly fg.deobf('local:geckolib-forge-1.20.1:4.8.4')
+    }
+}
+tasks.register('writeVisualProbeClasspath') {
+    doLast { file('build/visual-probe-classpath.txt').text = sourceSets.main.runtimeClasspath.asPath }
+}
+// Empty flat test worlds prevent natural roof gravel falling into cleared underground fixtures.
+// Never replace an existing world or its properties; gameTestDir can select a fresh directory.
+tasks.register('prepareGameTestWorld') {
+    doLast {
+        def dir = project.file(project.findProperty('gameTestDir') ?: 'run-gametest')
+        def properties = new File(dir, 'server.properties')
+        if (!properties.exists() && !new File(dir, 'world/level.dat').exists()) {
+            dir.mkdirs()
+            properties.text = '''level-name=world
+level-type=minecraft:flat
+generator-settings={"layers":[{"block":"minecraft:bedrock","height":1}],"biome":"minecraft:plains","structures":{}}
+generate-structures=false
+'''
+        }
+    }
+}
+tasks.matching { it.name == 'runGameTestServer' }.configureEach { dependsOn 'prepareGameTestWorld' }

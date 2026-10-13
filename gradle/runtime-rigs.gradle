@@ -1,0 +1,34 @@
+// Authoring files remain intact; only consumed fields are shipped. No frame reduction or rounding.
+def runtimeRigs = layout.buildDirectory.dir('generated/runtime-rigs')
+sourceSets.main.resources.srcDir(runtimeRigs)
+tasks.register('compileRuntimeRigs') {
+    inputs.dir('model-source')
+    outputs.dir(runtimeRigs)
+    doLast {
+        def keep = { Map value, List names -> value.findAll { k, v -> names.contains(k) } }
+        def outline
+        outline = { n -> n instanceof Map ? [uuid:n.uuid, children:n.children.collect { outline(it) }] : n }
+        fileTree('model-source').matching { include '*.bbmodel' }.files.each { source ->
+            def root = new groovy.json.JsonSlurper().parse(source, 'UTF-8')
+            def model = [
+                groups:root.groups.collect { keep(it, ['uuid','name','origin','rotation']) },
+                elements:root.elements.collect { c ->
+                    def cube = keep(c, ['uuid','name','from','to','origin','rotation'])
+                    cube.faces = c.faces.collectEntries { k,v -> [(k):keep(v,['uv','texture','rotation'])] }
+                    cube
+                },
+                outliner:root.outliner.collect { outline(it) },
+                animations:root.animations.collect { a ->
+                    [name:a.name,length:a.length,loop:a.loop,animators:a.animators.collectEntries { id,v ->
+                        [(id):v.containsKey('keyframes') ? [keyframes:v.keyframes.collect { k -> keep(k,['channel','time','data_points','interpolation']) }] : [:]]
+                    }]
+                }
+            ]
+            def output = new File(runtimeRigs.get().asFile,'assets/silver_samurai/models/'+source.name)
+            output.parentFile.mkdirs()
+            output.setText(groovy.json.JsonOutput.toJson(model),'UTF-8')
+        }
+    }
+}
+tasks.named('processResources') { dependsOn 'compileRuntimeRigs' }
+

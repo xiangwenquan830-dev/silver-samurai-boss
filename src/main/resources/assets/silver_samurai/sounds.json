@@ -1,0 +1,45 @@
+{
+  "red_cut": {
+    "subtitle": "subtitles.silver_samurai.red_cut",
+    "sounds": [
+      {
+        "name": "silver_samurai:red_cut",
+        "volume": 0.9,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "armor_scrape": {
+    "subtitle": "subtitles.silver_samurai.armor_scrape",
+    "sounds": [
+      {
+        "name": "minecraft:block.netherite_block.hit",
+        "type": "event",
+        "volume": 0.95,
+        "pitch": 1.05
+      }
+    ]
+  },
+  "armor_groan": {
+    "subtitle": "subtitles.silver_samurai.armor_groan",
+    "sounds": [
+      {
+        "name": "minecraft:block.netherite_block.hit",
+        "type": "event",
+        "volume": 0.9,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "heavy_slam": {
+    "subtitle": "subtitles.silver_samurai.heavy_slam",
+    "sounds": [
+      {
+        "name": "minecraft:block.netherite_block.break",
+        "type": "event",
+        "volume": 0.9,
+        "pitch": 0.88
+      }
+    ]
+  }
+}
