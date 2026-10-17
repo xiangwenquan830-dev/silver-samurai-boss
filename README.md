@@ -17,7 +17,7 @@ This release is command-summoned. Natural structures, activation devices, surviv
 - Authored drawing, sheathing, combat, transition, traversal and death animations.
 - Red-blade attacks, configurable terrain interaction, target pursuit, wall climbing and pursuit jumps.
 - Configurable combat and targeting. Optional Wolverine claw-breaking and regeneration interaction.
-- r60 improves landing compression and arm spacing while maintaining the two-handed grip.
+- r61 reduces excessive front-skirt flipping during climbing and separates the belt buckle from the skirt. The r60 landing improvements are retained.
 
 ## Configuration
 Server settings: `silver-samurai-server.toml` in the world's `serverconfig` directory. See [CONFIG.md](CONFIG.md). Back up worlds before changing terrain-destruction settings. Some boss attacks can modify blocks when enabled.

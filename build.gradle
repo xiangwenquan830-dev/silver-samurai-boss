@@ -1,5 +1,5 @@
 plugins { id 'java'; id 'net.minecraftforge.gradle' version '[6.0,6.2)' }
-version = '1.0.0-r60-landing'
+version = '1.0.0-r61-skirt'
 group = 'cn.blockforge.generated.bossmodbossmodbossm'
 base { archivesName = 'silver-samurai-forge-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
