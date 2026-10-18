@@ -1,11 +1,22 @@
 {
-  "entity.silver_samurai.silver_samurai": "银色武士",
-  "entity.silver_samurai.debris": "银色武士战损残骸",
-  "death.attack.silver_samurai.red_blade": "%1$s 被银色武士的红刃斩杀",
-  "death.attack.silver_samurai.red_blade.player": "%1$s 在与 %2$s 战斗时被红刃斩杀",
-  "subtitles.silver_samurai.red_cut": "红刃切割",
+  "entity.silver_samurai.silver_samurai": "Silver Samurai",
+  "entity.silver_samurai.debris": "Silver Samurai Debris",
+  "death.attack.silver_samurai.red_blade": "%1$s was slain by Silver Samurai's red blade",
+  "death.attack.silver_samurai.red_blade.player": "%1$s was slain by a red blade while fighting %2$s",
+  "subtitles.silver_samurai.red_cut": "Red blade cuts",
   "effect.silver_samurai.red_blade_wound": "Red Blade Wound",
   "subtitles.silver_samurai.armor_scrape": "Armor clanks",
   "subtitles.silver_samurai.armor_groan": "Heavy armor clanks",
-  "subtitles.silver_samurai.heavy_slam": "Heavy blade impacts"
+  "subtitles.silver_samurai.heavy_slam": "Heavy blade impacts",
+  "message.silver_samurai.claws_severed": "Claws severed by the red blade. Recovery takes 30 seconds.",
+  "message.silver_samurai.claws_ready": "Claws have recovered. Press the extend key to regrow them.",
+  "message.silver_samurai.claws_extended": "Claws extended.",
+  "message.silver_samurai.summon_space": "Not enough space. Choose an open area at least 5 blocks high.",
+  "message.silver_samurai.summoned": "Silver Samurai summoned. Red blades can destroy terrain by default.",
+  "message.silver_samurai.select_boss": "Select a Silver Samurai entity.",
+  "message.silver_samurai.phase_requested": "Battle-damage transition requested; health will not be restored.",
+  "message.silver_samurai.compat_active": "Wolverine %s: claw severance enabled; full-rage detection=%s",
+  "message.silver_samurai.compat_independent": "Standalone mode (Wolverine absent or its interface is incompatible)",
+  "message.silver_samurai.config_applied": "Configuration applied to %s Silver Samurai entities; health preserved, capped at the new maximum.",
+  "message.silver_samurai.broken_countdown": "Severed claws: %ss"
 }

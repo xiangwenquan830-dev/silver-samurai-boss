@@ -1,3 +1,20 @@
+# r62 - Maintenance and compatibility hardening
+
+- Migrated all production/test Java packages to `io.github.xiangwenquan830.silversamurai`. Registry IDs, resource paths, network IDs, saved fields and configuration keys remain unchanged.
+- Runtime rig loading now streams one keyframe at a time, instead of retaining the full animation JSON tree. Both phases preload during common setup before gameplay. No keyframe reduction, numerical rounding or interpolation changes.
+- Red-blade shield destruction now sends vanilla item cooldowns to players, including carried replacement shields. A newly acquired shield attempted during the lock receives the remaining cooldown. Existing mob lock behavior remains.
+- Validates legacy Wolverine method return types/static contracts and writable field types. A failed client adapter disables itself rather than repeatedly throwing each frame; existing restoration paths remain.
+- Localized entity/death text, claw notifications, common command feedback and the severed-claw countdown. Detailed operator diagnostic reports still retain their existing format.
+- Replaced mixed historical CONFIG instructions with a current 119-key reference and damageClasses examples. Historical notes remain under docs/CONFIG-HISTORY.md. Removed stale model-version and Wolverine-r69 descriptions.
+
+Forge 1.20.1 / 47.4.0+ / Java 17 only. No loader requirement changes. No animation, targeting, movement, combat balance, tracking-range or metadata-frequency changes.
+
+Verification: 219 required standalone maintenance tests and 338 required tests with the installed Wolverine r72 passed. Conditional third-party tests not applicable to each environment are listed in VALIDATION.md. The final client adapter also passed the geometry/interface/cache probe after its last edits. Production JAR built/reobfuscated successfully; test classes are absent.
+
+A public Wolverine API is not introduced in this release: it requires a paired Wolverine release. Structural legacy validation cannot guarantee the semantics of future versions. Real multiplayer visuals and third-party render replacements remain unverified.
+
+---
+
 # r61 - Skirt and belt buckle correction
 
 r61 - Skirt and belt buckle animation fix (Beta)

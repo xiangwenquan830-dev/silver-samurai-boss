@@ -17,6 +17,7 @@ This release is command-summoned. Natural structures, activation devices, surviv
 - Authored drawing, sheathing, combat, transition, traversal and death animations.
 - Red-blade attacks, configurable terrain interaction, target pursuit, wall climbing and pursuit jumps.
 - Configurable combat and targeting. Optional Wolverine claw-breaking and regeneration interaction.
+- r62 isolates the Java namespace, streams and preloads animation data, synchronizes shield cooldowns and validates legacy integration signatures. Authored keyframes and combat behavior are retained.
 - r61 reduces excessive front-skirt flipping during climbing and separates the belt buckle from the skirt. The r60 landing improvements are retained.
 
 ## Configuration

@@ -6,7 +6,7 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 authors="AutoMods"
-description='''指令召唤的双阶段银色武士Boss。独立战斗、战损红刃、可配置破甲破盾与地形破坏，可选联动金刚狼 r69。'''
+description='''指令召唤的双阶段银色武士Boss。独立战斗、战损红刃、可配置破甲破盾与地形破坏，可选联动金刚狼；未安装时可独立游玩。'''
 [[dependencies.${mod_id}]]
 modId="forge"
 mandatory=true

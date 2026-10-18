@@ -8,15 +8,15 @@ sourceSets {
 def obsolete = project.properties.keySet().findAll { it ==~ /focus.*|baselineR[0-9]+|fullWallRegression|terrainR53|clawR54|acceptanceR56/ }
 if (!obsolete.isEmpty()) throw new GradleException("Replaced test flags ${obsolete}; use -PtestSuite=full, compat, terrain or rNN")
 def suite = (project.findProperty('testSuite') ?: 'base').toString()
-def full = ['silver_samurai'] + ([43,44,45,46,47,48,49,50,51,52,53,54,56,59].collect { "silver_samurai_r${it}" })
-def suites = [base:['silver_samurai'], full:full, compat:['silver_samurai','silver_samurai_r56','silver_samurai_r59'],
+def full = ['silver_samurai'] + ([43,44,45,46,47,48,49,50,51,52,53,54,56,59,62].collect { "silver_samurai_r${it}" })
+def suites = [maintenance:['silver_samurai','silver_samurai_r52','silver_samurai_r56','silver_samurai_r59','silver_samurai_r62'], base:['silver_samurai'], full:full, compat:['silver_samurai','silver_samurai_r56','silver_samurai_r59'],
               terrain:['silver_samurai_r47','silver_samurai_r53'], flow:['silver_samurai_focus'],
               gait:['silver_samurai_gait'], sidekick:['silver_samurai_sidekick']]
 def namespaces = suites[suite]
 if (namespaces == null && suite ==~ /r[0-9]+/ && file("src/gametest/resources/data/silver_samurai_${suite}").isDirectory()) {
     namespaces = ["silver_samurai_${suite}"]
 }
-if (namespaces == null) throw new GradleException("Unknown testSuite '${suite}'; use base, full, compat, terrain, flow, gait, sidekick or an existing rNN suite")
+if (namespaces == null) throw new GradleException("Unknown testSuite '${suite}'; use base, full, maintenance, compat, terrain, flow, gait, sidekick or an existing rNN suite")
 minecraft.runs {
     gameTestServer {
         workingDirectory project.file(project.findProperty('gameTestDir') ?: 'run-gametest')

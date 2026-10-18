@@ -7,5 +7,16 @@
   "effect.silver_samurai.red_blade_wound": "红刃创伤",
   "subtitles.silver_samurai.armor_scrape": "护甲受击",
   "subtitles.silver_samurai.armor_groan": "重甲受击",
-  "subtitles.silver_samurai.heavy_slam": "重刃砸地"
+  "subtitles.silver_samurai.heavy_slam": "重刃砸地",
+  "message.silver_samurai.claws_severed": "钢爪被红刃斩断，30 秒后再生",
+  "message.silver_samurai.claws_ready": "钢爪已恢复，按伸爪键重新长出",
+  "message.silver_samurai.claws_extended": "钢爪已伸出",
+  "message.silver_samurai.summon_space": "这里空间太小，请选择至少5格高的空地",
+  "message.silver_samurai.summoned": "银色武士已召唤；注意：红刀默认会破坏地形",
+  "message.silver_samurai.select_boss": "请选择银色武士实体",
+  "message.silver_samurai.phase_requested": "已请求战损转场，不会回血",
+  "message.silver_samurai.compat_active": "金刚狼 %s 接口兼容：断爪启用，满怒识别=%s",
+  "message.silver_samurai.compat_independent": "独立模式（未安装金刚狼或接口不兼容）",
+  "message.silver_samurai.config_applied": "已将当前配置应用于 %s 个银色武士；保留当前生命，最大生命降低时截断",
+  "message.silver_samurai.broken_countdown": "断爪 %s秒"
 }

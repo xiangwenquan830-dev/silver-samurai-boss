@@ -1,190 +1,164 @@
-# r34 配置
+# 银色武士 r62 配置说明（Forge 1.20.1）
 
-新增 combatTempoMultiplier=1.15、targetScanIntervalTicks=4、minimumInterStrikePauseSeconds=0.50，启动后自动补充。详情见 R34-GAZE.md。
+本页以当前 `BossConfig` 为准。旧版本的调参说明已移至 [历史说明](docs/CONFIG-HISTORY.md)，不要用历史默认值覆盖正在使用的配置。
 
-# r33 配置变更
+## 文件位置与生效方式
 
-lastSeenTicks 现已接入实际逻辑；失去视线后最多追踪指定刻数，到时持刀观察，lostTargetTicks控制放弃目标。有效保持范围取 acquireRange 与 retainRange 的较大值。knockbackResistance、guardBreakFallbackTicks仅兼容保留并明确停用；抗击退固定为1。其他配置继承r32，详情见R33-PURSUIT.md。
+世界配置位于 `<世界目录>/serverconfig/silver-samurai-server.toml`。单人游戏在对应存档内，独立服务器在其世界目录内。`defaultconfigs` 只用于新世界的初始配置，不能替代既有存档配置。
 
-## 既有配置与历史说明
+替换 JAR 后完整重启游戏/服务器，客户端和服务器使用相同版本，只保留一个银色武士 JAR。升级不会自动覆盖你之前修改的数值。Forge 重读配置后，管理员可执行 `/samurai reload` 更新已存在 Boss 的属性；该命令不会治疗 Boss，最大生命降低时会截断当前生命。
 
-适用：Minecraft Java 1.20.1 / Forge 47.4.x。先备份世界，再换模组。
+本版保持 Forge 47.4.0+ / Java 17 要求，不新增其他加载器支持。
 
-## 安装与旧世界必须做的事
+## 自定义伤害分类
 
-1. 关闭游戏或服务器，从 `mods` 中移走旧银色武士 JAR，只保留本轮 r33；联机客户端和服务器使用同一份。
-2. 配置在单人 `.minecraft/saves/世界名/serverconfig/silver-samurai-server.toml`，服务器为 `world/serverconfig/silver-samurai-server.toml`。
-3. **旧配置不会被新默认值覆盖。** 找到下面两行并改为 `true`，否则旧世界可能仍然只有怪物主动打 Boss，没有 Boss 主动追怪：
+**配置键为 `damageClasses`，不是 `damageClassification`。** 格式是 `"namespace:damage_type=分类"`，可用分类为 `physical`、`fire`、`magic`、`other`、`bypass`。ID 必须是伤害类型注册 ID，不是生物、枪械物品或投射物实体 ID。格式不正确的条目不会生效。
 
 ```toml
-huntMonsters = true
-monstersTargetBoss = true
+# 示例：将原版溺水显式归为普通伤害；确有需要再使用。
+damageClasses = ["minecraft:drown=other"]
 ```
 
-4. 新增参数会在加载世界时补全。退出世界后编辑最稳妥；`/samurai reload` 将已加载的配置应用于当前 Boss 属性，不治疗。
+判定顺序：虚空和清除伤害强制 bypass；然后按列表中第一个匹配 ID 覆盖；之后检查火焰、魔法、物理标签，以及投射物/爆炸/摔落和直接近战来源；剩余伤害归 other。unknown 不应统一改成 physical，否则会把法术等非物理伤害错误减免 99%。
 
-## 本轮新增警戒设置
+数据包也可向 `silver_samurai:physical`、`silver_samurai:magic` 伤害类型标签追加 ID。针对模组新增 ID 时，建议 `replace: false` 并使用可选条目，避免卸载该模组后缺失注册项。
 
-```toml
-creativeKeepsAlert = true
-```
+TaCZ 的 `tacz:bullet`、`tacz:bullet_ignore_armor`、`tacz:bullet_void`、`tacz:bullet_void_ignore_armor` 以及其 bullets 标签已在独立枪弹防御逻辑中识别，通常无需手动添加。伤害分类覆盖并不关闭这条枪弹防御逻辑。其他枪械、炮塔或法术请按其实际注册 ID 配置；不能凭模组名称猜测 ID。
 
-- 默认 `true`：创造玩家不受攻击，但在 `activationRange` 内维持活动与已经拔出的刀；不会仅为创造观察者反复拔收刀。
-- 旁观玩家不维持警戒。有效敌人在 `retainRange` 内时，即使暂时隔墙、不可达，也阻止收刀。
-- 仅无观察者且无有效敌人连续达到 `lostTargetTicks`（默认160刻，即8秒），才能收刀；一阶段随后播放约3秒收刀，二阶段始终保留单刀。
-- 没有玩家也没有敌人时休眠，不巡逻。按本轮新要求，只要附近存在有效敌人，就不使用旧的“无人立刻停战”分支。
-- 新项在旧世界自动补齐，不删除或覆盖既有伤害、速度、阵营和破坏设置。
-- `corpseHoldTicks` 仍从死亡动作完成后计时。半空死亡先受重力落地，不将空中等待算作地面死亡进度。
-- 老存档缺少持刀字段时：一阶段仍按旧的未拔刀姿态安全恢复；保存过本轮字段后正确恢复持刀。旧版死尸没有表面快照时使用平地兼容值，建议不要把正在死亡的旧尸体作为新效果验收对象。
+## 远程与持续伤害
 
-## 沿用的站位设置（不是本轮新增）
+`rangedDamageTypes` 可补充未被识别为投射物的远程伤害类型；`periodicDamageTypes` 补充持续伤害类型。减伤比例采用适用项中的最大值，不重复相乘。最终仍受对应单次及滚动 20 tick 远程伤害上限约束，多名射手共享每个 Boss 的窗口。直接修改生命值、移除实体或虚空/清除不等同于普通受伤事件，不能保证被这些配置拦截。
 
-```toml
-spacingStepDistance = 0.7
-hitReactionCooldownTicks = 24
-```
+## 破盾与可选联动
 
-- `spacingStepDistance`：过近时一次后撤/斜步的目标距离，单位格，可选0.3～0.9。默认0.7，不增加攻击距离；前后与中间任何位置不能站稳就不走。
-- `hitReactionCooldownTicks`：局部受击姿势最短间隔，单位刻（20刻约1秒），范围12～100。默认24刻约1.2秒；不改变伤害保护时间，不控制金属装甲音效，不让轻伤反复打断连招。
-- 新配置进入旧世界时自动补全；不用删除旧配置，避免丢失你改过的伤害和阵营设置。
-- 原 `combatFeedback = false` 同时关闭新增局部受力反馈；物理AI的退步、转身不关闭。
+红刀销毁正在使用的一面盾，保留背包备用盾；禁盾期间对玩家发送原版物品冷却，现有备用盾也会同步。禁盾后新获得的盾在尝试使用时同样被拒绝并补发剩余冷却。非玩家仍采用服务端禁盾时间戳。
 
-### 保持当前工程的速度，不整体提速
+金刚狼不是前置。当前仍使用旧版适配接口，本轮加强了方法返回类型、静态/实例性质和可写字段类型检查，不能证明未来版本语义永远兼容。公开 API 需要双方配套发布；不能仅靠放宽版本范围就宣称支持。独立模式与联动模式的实际测试范围见 VALIDATION.md。
 
-```toml
-baseMovementSpeed = 0.3
-chaseSpeedMultiplier = 1.25
-phaseTwoSpeedMultiplier = 1.4
-attackPlaybackRate = 1.18
-walkCycleDistance = 1.9
-extraRecoveryTicks = 4
-```
+## 当前完整配置表
 
-以上是接续工程的原默认值，本轮未改。追击增加渐进起步、急弯减速，不提高最高速度。旧世界若已经自行调成更沉稳的参数，仍使用你的旧值。
+此表从本版 BossConfig 声明核对生成；数值单位以说明为准，20 tick = 1 秒，减伤比例 0.99 = 99%。
 
-`extraRecoveryTicks` 现在是在原连招动画完整慢收之后，叠加一阶段14刻/二阶段8刻的基础安全收势，最少8刻；默认额外收势约0.9/0.6秒。不会压缩有效挥砍或让红刀无间隔三连。
-
-起手判断的距离并非伤害半径：中心间距通常以双刀约2.9格、单刀约3.1格为基准，按目标宽度、斩击和真实刀路修正；每刀伤害仍由原刀刃扫掠与原配置范围上限共同决定。近距带有0.3格退出余量，判断至少保持6刻；短后退16刻，不每刻随机换方向。退路受阻会检查后方、斜侧和纯侧向；两轮失败后等待80刻，再换侧重试，不永久放弃，也不无限空转。
-
-调试状态新增「当前距离」「期望距离」「行为原因」。联机客户端与服务端必须使用同一份新版JAR；同步数据结构已增加，不支持混装旧版客户端。
-
-## 两个独立伤害上限
-
-```toml
-incomingDamageCap = 30.0
-outgoingDamageCap = 40.0
-```
-
-- `incomingDamageCap`：阶段减伤、护甲、抗性、附魔和吸收等正常结算之后，单个最终伤害事件扣血最多30。原本只扣0.2，仍扣0.2；不是保底伤害。虚空和管理员清除不受限。
-- `outgoingDamageCap`：读取 Boss 当前基础攻击属性，乘该刀倍率，再乘二阶段红刀倍率，最后封顶40。默认二阶段24/24/36不变。
-- **任意一项设为 `0.0`，仅关闭这一项上限。** 两者互不影响。
-- 不重置目标全局受伤保护时间。各刀之间留足正常保护窗口；其他生物同一时刻打中目标，仍可能干扰这一刀，调试中会记录。
-- 绕甲、破盾、金刚狼破防仍保留；默认不绕抗性、吸收和附魔减伤。
-
-## 真实体型寻路和机械动作
-
-碰撞箱保持1.65格宽、4.5格高。规划和实际移动都检查这一体型，不能把玩家能走的1格通道当成 Boss 通道。
-
-```toml
-repathTicks = 16
-navigationNodesPerTick = 12
-navigationNodesPerLevelTick = 96
-navigationSearchLimit = 900
-vaultDistance = 3.0
-climbHeight = 4.0
-traversalCooldownTicks = 50
-safeDropHeight = 3.0
-failedRouteRetryTicks = 120
-```
-
-- 优先普通走路、台阶、绕行；失败后增加翻越、短攀爬，最后才考虑二阶段清障。
-- `climbHeight = 0.0` 禁用较高攀爬；低障碍翻越仍保留。
-- 只在已加载区块中搜索。单次搜索最多900个节点，搜索边界约水平36格、上下12格，不为追人强行加载远处区块。
-- 路线在数刻中分摊计算；全部 Boss 共用维度预算。移动目标相对上次规划点移动超过2格时重新申请，仍遵守最短重算间隔。
-- 楼梯允许至少两个分离支点承重；流体、火、危险落点不会作为正常站立路线。
-- 翻越与攀爬逐小段碰撞移动，不传送；墙或落点中途改变则中止并重算。机械状态不会同时攻击。
-- 失败路线暂避，目标显著移动、附近障碍改变或冷却后再尝试。
-- 复杂超长迷宫、极窄旋转楼梯或非标准模组碰撞面可能超出预算或半格落脚采样能力，报告为不可达，不强行穿模。
-
-## 二阶段主动清障
-
-```toml
-terrainDestruction = true
-activeRedClearing = true
-clearingDistance = 3.0
-clearingBlocksPerStrike = 12
-clearingBlocksPerTick = 3
-clearingAttemptTicks = 180
-terrainBlocksPerLevelTick = 24
-```
-
-- `activeRedClearing = false` 只关闭主动开路；红刀战斗挥砍仍按原有总地形设置破坏。
-- `terrainDestruction = false` 同时关闭战斗破坏与主动清障。
-- 单段通道依据完整碰撞箱形成，包括脚前、胸前和头顶；使用保持双手握柄的专用单刀短切，按待清位置调整刀刃高度，短起手、有效斩击、短收势。
-- 只破坏规划通道中被有效刀路接触的方块，逐段推进；脚底支撑不列入主动清障范围。
-- 上限取主动清障设置与原有 `maxBlocksPerStrike` / `maxBlocksPerTick` 中较小值；所有 Boss 还共享维度破坏预算。
-- 通道通行后立即停止，超时、禁止破坏或刀路连续够不到时改走其他路线；不会无限砍同一个方块。
-- 原有 `protectedBlocks`、容器、方块实体、`mobGriefing` 和保护事件设置继续有效。
-- 领地模组必须实际监听 Forge 实体破坏或 `BlockEvent.BreakEvent`。没有测试过你的领地模组时，先用 `disableTerrainForUnknownClaims = true` 或关闭总破坏。
-
-## 双向索敌与休眠
-
-```toml
-hostileToPlayers = true
-huntMonsters = true
-monstersTargetBoss = true
-retaliate = true
-friendlyFire = false
-friendlyEntities = []
-enemyEntities = []
-activationRange = 64.0
-acquireRange = 28.0
-retainRange = 40.0
-lastSeenTicks = 80
-lostTargetTicks = 160
-```
-
-- Boss 默认同时敌对生存/冒险玩家和通常敌对玩家的怪物。友方、同队、创造、旁观、死亡及其他维度实体被排除。
-- 怪物方向添加目标选择任务，保留怪物本来的移动、近战或射箭方式；不强行抢走它已经有效的其他目标。
-- 创造默认维持观察，生存/冒险可作为攻击目标；旁观不维持。附近存在有效敌人时维持活动；只有无观察者且无敌人持续超过延迟才休眠。
-- 首次发现需要视线；遮挡后只向最后确认位置追踪，不更新墙后目标坐标。正在执行有效路线或清障时允许有限延长，不变成无限追踪。
-- `enemyEntities = ["othermod:monster"]` 或实体标签 `silver_samurai:enemies` 扩展敌对类型；友方列表和 `silver_samurai:friends` 优先。
-- 使用完全自定义大脑、硬编码目标或不使用普通目标任务的其他模组生物，不能保证自动接入；需要逐模组实测和专门兼容。
-
-## 如何区分三类问题
-
-```mcfunction
-/samurai debug @e[type=silver_samurai:silver_samurai,sort=nearest,limit=1] true
-/samurai status @e[type=silver_samurai:silver_samurai,sort=nearest,limit=1]
-```
-
-- **刀路未接触**：这一刀的真实刀刃扫掠没有碰到目标。状态中该刀接触数为0；不是靠无限扩大范围补伤害。
-- **受伤保护拦截**：确实发生接触，但目标处于原版受伤保护窗口且 `hurt` 拒绝；同时装其他战斗模组时，事件取消也可能造成拒绝，要结合日志判断。
-- **索敌失败/暂不可达**：没有发起斩击，报告会显示目标、遮挡时长、寻路层级、停滞和失败情况。
-- 日志逐刀记录起始距离、计划突进、朝向、俯仰、接触时动画时间、接受与否、实际生命减少值。
-- 调试默认关闭，用完后把同一指令末尾改为 `false`。
-
-## r29：近身反击与收到的伤害
-
-以下条目在原配置所在层级自动补入，无须删除旧配置：
-
-```toml
-closeDefenseEnabled = true
-closeDefenseCooldownTicks = 40
-rangedDamageReduction = 0.60
-periodicDamageReduction = 0.75
-rangedDamageTypes = []
-periodicDamageTypes = ["minecraft:wither", "minecraft:on_fire"]
-```
-
-- `closeDefenseEnabled` 控制单目标近身短踢，群体解围仍由原有配置控制。
-- 短踢冷却单位为游戏刻，40刻约两秒，允许30–400刻。
-- 两项伤害减免范围0–1；与原有一阶段物理减免取较强者，保留后续护甲和最终伤害封顶。
-- 投射物自动识别；其他模组不带投射物标签的远程伤害可用 `rangedDamageTypes` 补充**伤害类型注册ID**。
-- 效果每刻执行时触发的伤害自动识别；在效果回调外单独触发的自定义持续伤害可用 `periodicDamageTypes` 补充。不是效果名称列表，减伤也不缩短负面效果持续时间。
-- 通过直接修改生命值或强制死亡绕开伤害流程的效果，仍需要既有免疫列表或专项兼容，不能靠75%减伤自动拦截。
-- 红刃充能时间跟随转场的握稳帧，不另外添加任意提前点亮的配置。
-
-## 原死亡和残骸配置仍然有效
-
-`corpseHoldTicks`、`debrisLifetimeTicks`、`debrisFadeTicks`、`debrisMaxPerBoss`、`debrisMaxLoadedPerLevel` 和 `combatFeedback` 不改名。跪倒停机、落稳后留存与像素渐隐均保留；死亡会中断新增加的机械动作和清障。
+| 配置键 | 默认值 | 范围/类型 | 作用 |
+|---|---|---|---|
+| `sideSweepEnabled` | `true` | true / false | 高速近身目标启用单手侧向截击 |
+| `sideSweepCooldownTicks` | `24` | 20 … 400 | 侧挥独立冷却，包含准备和收势 |
+| `crowdStompEnabled` | `true` | true / false | 贴身敌群触发抬腿震地，只伤害实体，永不破坏地形 |
+| `crowdStompMinimumEnemies` | `3` | 2 … 32 | 脚边达到此数量时触发震地 |
+| `crowdStompCooldownTicks` | `100` | 40 … 1200 | 震地冷却，包含抬腿和收势 |
+| `crowdStompTriggerRadius` | `2.4` | 1 … 4 | 脚边敌群触发半径 |
+| `crowdStompRadius` | `3.2` | 1 … 5 | 落脚瞬间震地范围 |
+| `crowdStompDamageMultiplier` | `.65` | 0 … 3 | 基础攻击力倍率，仍受单次伤害上限约束，使用普通物理伤害 |
+| `crowdStompKnockback` | `1.2` | 0 … 3 | 径向击退强度，尊重目标抗击退 |
+| `health` | `600` | 1 … 1024 | 总生命值；遵守原版最大生命属性上限1024 |
+| `phaseThreshold` | `300` | 0 … 1024 | 二阶段阈值；不回血，应低于总生命值 |
+| `attackDamage` | `12` | 0 … 10000 | 基础攻击力 |
+| `firstHitMultiplier` | `1` | 0 … 100 | 第一击倍率 |
+| `secondHitMultiplier` | `1` | 0 … 100 | 第二击倍率 |
+| `finisherMultiplier` | `2.5` | 0 … 100 | 终结倍率 |
+| `redBladeMultiplier` | `2` | 0 … 100 | 红刀额外倍率 |
+| `physicalReduction` | `.99` | 0 … 1 | 一阶段物理减伤比例 |
+| `phaseTwoArmor` | `40` | 0 … 1000 | 二阶段护甲 |
+| `fullRageClawBypass` | `1` | 0 … 1 | 满怒真钢爪绕过装甲比例 |
+| `transitionReduction` | `1` | 0 … 1 | 转场减伤，1为无敌；虚空和清除始终有效 |
+| `transitionProtectionTicks` | `120` | 0 … 120 | 转场保护时长 |
+| `acquireRange` | `28` | 1 … 128 | 主动索敌距离 |
+| `retainRange` | `40` | 1 … 192 | 保持战斗距离 |
+| `activationRange` | `64` | 1 … 256 | 附近非旁观玩家维持活动距离；创造是否维持警戒由creativeKeepsAlert控制 |
+| `creativeKeepsAlert` | `true` | true / false | 创造玩家只维持观察活动，绝不作为伤害目标；无实际敌人超过脱战时长仍会收刀；旁观默认不维持 |
+| `lastSeenTicks` | `80` | 0 … 1200 | 失去视线后继续追向最后已知位置的刻数；到时持刀观察，lostTargetTicks决定放弃目标 |
+| `lostTargetTicks` | `160` | 20 … 2400 | 脱战时长 |
+| `extraRecoveryTicks` | `4` | 0 … 200 | 动画慢收后额外反击窗口 |
+| `phaseOneRange` | `5.5` | 1 … 12 | 刀路距离上限，不扩大原始刀身 |
+| `phaseTwoRange` | `6.5` | 1 … 14 | 二阶段刀路上限 |
+| `heavyRange` | `7` | 1 … 16 | 重劈刀路上限 |
+| `slashLunge` | `1.25` | 0 … 3 | 普通斩击总位移 |
+| `heavyLunge` | `1.75` | 0 … 4 | 终结斩总位移 |
+| `knockbackResistance` | `1` | 0 … 1 | 兼容旧配置保留，已停用：银色武士抗击退固定为1，修改此项不生效 |
+| `shieldDisableTicks` | `60` | 0 … 1200 | 普通盾牌失效时长 |
+| `guardBreakFallbackTicks` | `60` | 1 … 1200 | 兼容旧配置保留，已停用：不再使用旧破防时长回退，断爪由独立机制管理 |
+| `redBypassResistance` | `false` | true / false | 是否绕过抗性；默认否 |
+| `redBypassAbsorption` | `false` | true / false | 是否绕过吸收生命；默认否 |
+| `redBypassEnchantmentEffects` | `false` | true / false | 是否绕过附魔减伤；默认否，不强制取消其他模组事件 |
+| `hostileToPlayers` | `true` | true / false | 主动攻击生存冒险玩家 |
+| `monstersTargetBoss` | `true` | true / false | 让通常敌对玩家的生物选择Boss |
+| `retaliate` | `true` | true / false | 受到攻击后反击 |
+| `huntMonsters` | `true` | true / false | 主动猎杀敌对生物；旧世界请手动将原有false改成true |
+| `friendlyFire` | `false` | true / false | 允许同类互攻 |
+| `friendlyEntities` | `[]` | 字符串列表 | 友方实体ID，优先于敌方 |
+| `enemyEntities` | `[]` | 字符串列表 | 额外敌方实体ID |
+| `damageClasses` | `[]` | 字符串列表 | 覆盖格式 namespace:id=physical/fire/magic/other/bypass；未知伤害默认正常伤害 |
+| `terrainDestruction` | `true` | true / false | 红刀破坏地形，建议先在备份测试世界尝试 |
+| `terrainRange` | `7` | 0 … 16 | 破坏距Boss的最大距离，仍需处在真实刀路 |
+| `maxBlocksPerStrike` | `24` | 0 … 256 | 每击最大破坏数 |
+| `maxBlocksPerTick` | `6` | 0 … 32 | 每刻最大破坏数 |
+| `maxBlockChecksPerTick` | `192` | 8 … 1024 | 每刻最多检查的刀路方块 |
+| `terrainDrops` | `false` | true / false | 破坏是否掉落，默认关闭以减少卡顿 |
+| `breakContainers` | `false` | true / false | 允许破坏容器，还需允许方块实体 |
+| `breakBlockEntities` | `false` | true / false | 允许破坏带数据的方块 |
+| `respectMobGriefing` | `true` | true / false | 遵守世界mobGriefing规则 |
+| `respectProtectionEvents` | `true` | true / false | 发送实体破坏和虚拟玩家BreakEvent，领地模组须支持这些事件 |
+| `disableTerrainForUnknownClaims` | `false` | true / false | 领地保护不确定时完全禁用红刀破坏 |
+| `protectedBlocks` | `["minecraft:bedrock",
+                            "minecraft:end_portal_frame",
+                            "minecraft:reinforced_deepslate"]` | 字符串列表 | 禁止破坏方块ID |
+| `debrisLifetimeTicks` | `200` | 20 … 1200 | 碎片落地后存留时长 |
+| `particlesPerTick` | `12` | 0 … 64 | 单个Boss每刻刀光粒子上限 |
+| `maxTargetsPerStrike` | `24` | 1 … 128 | 单次挥砍结算目标上限 |
+| `baseMovementSpeed` | `.3` | .05 … 1 | 基础移动速度，加载与reload更新 |
+| `chaseSpeedMultiplier` | `1.25` | .1 … 3 | 一阶段追击倍率 |
+| `phaseTwoSpeedMultiplier` | `1.4` | .1 … 3 | 二阶段追击倍率 |
+| `attackPlaybackRate` | `1.18` | .5 … 2 | 沿用r4连招速度，刀路与位移同步 |
+| `walkStrideScale` | `1.7` | 1 … 2.2 | 重装步幅倍率；与原 walkCycleDistance 相乘，旧配置同样生效 |
+| `walkCycleDistance` | `1.9` | 1 … 10 | 左右脚一次循环对应实际移动距离 |
+| `corpseHoldTicks` | `100` | 0 … 2400 | 3.8秒死亡动作播完后额外保留尸体；生成死亡状态时锁定 |
+| `debrisFadeTicks` | `60` | 10 … 400 | 残骸像素溶解时长，结束后才移除 |
+| `debrisMaxPerBoss` | `8` | 0 … 8 | 每次转场零件上限，包含不可拾取落刀；0关闭残骸 |
+| `debrisMaxLoadedPerLevel` | `128` | 0 … 1024 | 每个维度已加载残骸上限；达到上限跳过新生成，不删旧残骸 |
+| `combatFeedback` | `true` | true / false | 金属脚步、装甲火花和接触地面的少量尘土；不晃动镜头 |
+| `incomingDamageCap` | `30` | 0 … 1000000 | 最终单次扣血上限，正常减伤后应用；0关闭，虚空和管理员清除不受限 |
+| `outgoingDamageCap` | `60` | 0 … 1000000 | 基础攻击乘连招和红刀倍率后的输出上限；0关闭 |
+| `repathTicks` | `16` | 8 … 100 | 重新规划最小间隔；移动目标超过2格才提前申请，仍受预算约束 |
+| `navigationNodesPerTick` | `12` | 2 … 64 | 每只Boss每刻最多展开的路线节点 |
+| `navigationNodesPerLevelTick` | `96` | 8 … 512 | 单维度每刻全部Boss共享的路线节点上限 |
+| `navigationSearchLimit` | `900` | 100 … 4000 | 一次路线搜索总节点上限；只读取已加载区块 |
+| `vaultDistance` | `3` | 1.5 … 4 | 低障碍翻越最大水平距离 |
+| `climbHeight` | `4` | 0 … 5 | 短机械攀爬最高格数；0禁用 |
+| `traversalCooldownTicks` | `50` | 10 … 300 | 翻越和攀爬共用冷却 |
+| `safeDropHeight` | `3` | .5 … 5 | 允许的最大下落高度，不跳向无支撑落点 |
+| `activeRedClearing` | `true` | true / false | 二阶段主动清障，仍服从terrainDestruction及所有保护限制 |
+| `clearingDistance` | `3` | 1 … 5 | 逐段清障路线的单段距离，仍需真实刀路接触 |
+| `clearingBlocksPerStrike` | `12` | 1 … 64 | 清障每刀最多方块，还受总破坏上限限制 |
+| `clearingBlocksPerTick` | `3` | 1 … 16 | 清障每刻最多方块，还受总破坏上限限制 |
+| `terrainBlocksPerLevelTick` | `24` | 1 … 256 | 单维度所有Boss共享每刻破坏上限，攻击与清障共用 |
+| `clearingAttemptTicks` | `180` | 30 … 600 | 单段清障最长尝试时间，超时暂避该路线 |
+| `failedRouteRetryTicks` | `120` | 40 … 1200 | 失败路线和不可达目标的冷却；目标显著移动或障碍改变可提前重试 |
+| `spacingStepDistance` | `.7` | .3 … .9 | 过近时单次短后撤/斜步距离；整段检查落脚、墙体和其他实体，不增加攻击距离 |
+| `hitReactionCooldownTicks` | `24` | 12 … 100 | 局部受力反馈最短间隔，按实际扣血判断，不反复打断挥砍或攀爬 |
+| `immuneEffects` | `["hordes:infected"]` | 字符串列表 | Boss拒绝并清理的状态效果注册名，不影响其他实体 |
+| `immuneDamageTypes` | `["hordes:infection"]` | 字符串列表 | Boss免疫的专用伤害类型，不屏蔽虚空或管理员清除 |
+| `closeDefenseEnabled` | `true` | true / false | 单个近身敌人触发短踢，不破坏方块 |
+| `closeDefenseCooldownTicks` | `80` | 30 … 400 | 单体短踢冷却，还受近身动作共享冷却限制 |
+| `rangedDamageReduction` | `.90` | 0 … 1 | 远程伤害减免；与一阶段物理减免取较强者 |
+| `periodicDamageReduction` | `.75` | 0 … 1 | 持续负面伤害减免；与其他百分比减免取较强者 |
+| `rangedDamageTypes` | `[]` | 字符串列表 | 补充远程伤害类型注册ID，适配不带投射物标记的光束等 |
+| `periodicDamageTypes` | `["minecraft:wither", "minecraft:on_fire"]` | 字符串列表 | 持续伤害类型注册ID；效果自身每刻造成的伤害也会识别，普通瞬间魔法不按持续伤害处理 |
+| `closeDefenseSharedCooldownTicks` | `80` | 40 … 1200 | 短踢与群体解围共享冷却，防止交替踢腿；冷却不阻止挥刀和换位 |
+| `redBladeHealingSuppression` | `true` | true / false | 有效红刃伤害施加再生抑制，包括经过治疗事件的金刚狼自愈 |
+| `redBladeHealingReduction` | `.75` | 0 … 1 | 再生抑制比例，0.75为治疗仅保留25%；多个来源不重复相乘 |
+| `redBladeHealingSuppressionTicks` | `120` | 1 … 2400 | 再生抑制持续刻数，命中刷新、不累加时长；20刻为1秒 |
+| `combatTempoMultiplier` | `1.15` | 1 … 1.5 | 连招整体节奏倍率，乘以既有attackPlaybackRate；新字段让旧世界也采用加快节奏，设1恢复旧倍率 |
+| `targetScanIntervalTicks` | `4` | 2 … 20 | 已有目标时重新评估间隔；无目标时每2刻检查，当前挥刀期间不切换目标 |
+| `minimumInterStrikePauseSeconds` | `.50` | .50 … .8 | 两刀有效窗口之间最小间隔；至少0.5秒保留正常受伤保护，不靠清除无敌帧加速 |
+| `wallClimbEnabled` | `true` | true / false | 启用高楼攀爬及下坠抓握；仅检查已加载区块 |
+| `wallClimbMaxHeight` | `48` | 5 … 128 | 单段高楼攀爬最高格数 |
+| `wallTraversalTimeoutTicks` | `1800` | 200 … 6000 | 墙面动作总时限，失败后恢复重力并重规划 |
+| `rangedDamagePerSecondCap` | `6` | 0 … 10000 | 任意连续20刻最终远程伤害总上限；0关闭；虚空与清除不受限 |
+| `unlimitedPursuitDrop` | `true` | true / false | 追击下跳不设高度上限，仍须确认完整落点并避开火焰、深水和虚空；关闭后使用pursuitDropHeight |
+| `pursuitDropHeight` | `20` | 3 … 64 | 追击允许跳下的最大落差；需要确认安全落点 |
+| `playerAcquireRange` | `96` | 1 … 192 | 玩家独立发现范围；仍需视线，不扩大怪物扫描体积 |
+| `playerRetainRange` | `160` | 1 … 256 | 已发现玩家的保留范围，至少不低于玩家发现范围 |
+| `playerLastSeenTicks` | `400` | 0 … 2400 | 遮挡后追踪玩家最后可见位置的时长，20刻为一秒；不会隔墙实时读取目标新位置 |
+| `playerLostTargetTicks` | `600` | 20 … 3600 | 玩家持续不可见时放弃目标的时长，不低于其记忆时长 |
+| `playerTargetPriority` | `24` | 0 … 60 | 可见玩家的选择加权；近身可攻击敌人的紧急优先级仍保留 |
+| `rangedDamagePerHitCap` | `3` | 0 … 10000 | 最终单发远程扣血上限，0关闭；多名射手仍共用每秒总上限 |
