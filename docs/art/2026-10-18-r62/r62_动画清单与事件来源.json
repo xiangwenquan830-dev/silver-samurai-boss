@@ -1,0 +1,4648 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "605d599e4d8dcb11eb70e191e904333e024a8ad4",
+  "code_branch_commit": "01901f836ff5eb987996fa42e2512527cee46833",
+  "units": "seconds in authored clip, unless event explicitly says state time",
+  "not_runtime_config": true,
+  "models": [
+    {
+      "phase": "phase1",
+      "sha256": "3a146cbab9347a8b925783c431e7e0950e239d6ae3e5591a7f69040ca176aba2",
+      "groups": 39,
+      "elements": 102,
+      "animation_count": 30,
+      "animations": [
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "拔刀_提身上抽_双刀",
+          "uuid": "1735e2c4-c91b-566e-95df-a109ec6c4613",
+          "length_seconds": 1.72222,
+          "loop": "hold",
+          "purpose": "第一阶段静止拔双刀",
+          "start_pose": "双刀在背挂，站立",
+          "end_pose": "双刀已拔出，手落下",
+          "entry": "背刀静止/休眠唤醒",
+          "exit": "armed_idle / armed_walk / A、B（需姿势混合）",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.72222,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            }
+          ],
+          "keyframe_count": 1555,
+          "embedded_events": [],
+          "effect_track_count": 1,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.51335,
+                  1.20887
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.51335,
+                  1.20887
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.51335,
+                  1.20887
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.51335,
+                  1.20887
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "收刀_对准回插_双刀",
+          "uuid": "8c8b2e5e-be37-511a-b740-9685754685ed",
+          "length_seconds": 1.97222,
+          "loop": "hold",
+          "purpose": "原地回插双刀的备用片段",
+          "start_pose": "本模型原地拔刀末姿",
+          "end_pose": "双刀回背挂、手落下",
+          "entry": "拔刀_提身上抽_双刀",
+          "exit": "背刀静止",
+          "status": "无生产调用；保留的原地收刀备选，不应凭名称替换当前脱战收刀。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.97222,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            }
+          ],
+          "keyframe_count": 1889,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.43091,
+                  1.37558
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.43091,
+                  1.37558
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.43091,
+                  1.37558
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.43091,
+                  1.37558
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "行走_背刀负重_循环",
+          "uuid": "258528a5-2416-5750-b304-c3956a5e1c42",
+          "length_seconds": 1.36,
+          "loop": "loop",
+          "purpose": "第一阶段背刀负重行走；也是 armed_walk 的下身来源",
+          "start_pose": "背刀步态同一循环相位",
+          "end_pose": "背刀步态同一循环相位",
+          "entry": "背刀静止或结束收刀",
+          "exit": "自身循环 / 静止 / 行进拔刀（保持步态相位）",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.36,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 833,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.08,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -1.08,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "行进拔刀_双刀低展压迫",
+          "uuid": "e23deeb3-7aff-407a-a100-ffea9b86187e",
+          "length_seconds": 2.8,
+          "loop": "hold",
+          "purpose": "第一阶段边追击边拔双刀",
+          "start_pose": "背刀行走、身体前压",
+          "end_pose": "低位外展持双刀",
+          "entry": "行走_背刀负重_循环",
+          "exit": "armed_walk / armed_idle / 攻击，需混合",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 2.8,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 2831,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.08,
+            -0.0
+          ],
+          "root_end_model_units": [
+            0.0281241,
+            -1.2978313,
+            -34.1830588
+          ],
+          "root_delta_model_units": [
+            0.0281241,
+            -0.2178313,
+            -34.1830588
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "行进拔收刀_双刀完整流程",
+          "uuid": "e86101a0-a6fc-47ae-aa1c-27f69af0d074",
+          "length_seconds": 5.8,
+          "loop": "hold",
+          "purpose": "行进拔刀后再收刀的完整展示片段",
+          "start_pose": "背刀行进",
+          "end_pose": "回到背刀行进",
+          "entry": "展示起点",
+          "exit": "展示结束或背刀行走",
+          "status": "无生产调用；审阅/展示用整段，不作为战斗状态机动作。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 5.8,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "拔刀段结束、收刀段开始",
+              "time_seconds": 2.8,
+              "end_seconds": null,
+              "basis": "asset-derived",
+              "source": "",
+              "note": "2.8s 分段点；不能作为一次攻击"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 5815,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.08,
+            -0.0
+          ],
+          "root_end_model_units": [
+            0.1297728,
+            -0.8209082,
+            -71.2418823
+          ],
+          "root_delta_model_units": [
+            0.1297728,
+            0.2590918,
+            -71.2418823
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ],
+                [
+                  3.58333,
+                  4.51667
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ],
+                [
+                  3.58333,
+                  4.51667
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ],
+                [
+                  3.58333,
+                  4.51667
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  1.15,
+                  1.85
+                ],
+                [
+                  3.58333,
+                  4.51667
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "行进收刀_低展回插_双刀",
+          "uuid": "b69b6327-796a-4aab-862e-aa4493f56e93",
+          "length_seconds": 3,
+          "loop": "hold",
+          "purpose": "现有第一阶段脱战收刀来源",
+          "start_pose": "低位外展持双刀",
+          "end_pose": "背刀行进末姿",
+          "entry": "持刀待机/追击停下",
+          "exit": "背刀静止/休眠；中断时 r62 原路反播到握刀端",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 3,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "收刀完成",
+              "time_seconds": 3,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "SamuraiEntity.sheatheTick",
+              "note": "完整结束才 setDrawn(false)；原地播放下身处理是代码职责"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 3021,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0281241,
+            -1.2978313,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.1297728,
+            -0.8209082,
+            -37.0588235
+          ],
+          "root_delta_model_units": [
+            0.1016487,
+            0.4769231,
+            -37.0588235
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.78333,
+                  1.71667
+                ]
+              ],
+              "max_abs_degrees": 57.97838
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.78333,
+                  1.71667
+                ]
+              ],
+              "max_abs_degrees": 57.97838
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.78333,
+                  1.71667
+                ]
+              ],
+              "max_abs_degrees": 57.97838
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.78333,
+                  1.71667
+                ]
+              ],
+              "max_abs_degrees": 57.97838
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "战斗_A_后摆拧腰滑步上挑",
+          "uuid": "16a4cf92-e1cc-4cc1-9977-10eda3e9f23c",
+          "length_seconds": 3.13,
+          "loop": "hold",
+          "purpose": "前两击斩击，第三击滑步上挑",
+          "start_pose": "双刀战斗准备",
+          "end_pose": "第三击收势后的持刀姿态",
+          "entry": "同阶段持刀待机/追击/恢复",
+          "exit": "恢复混合 → 同阶段持刀待机/追击/下一连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 3.13,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "第1击刀路判定与突进窗口",
+              "time_seconds": 0.3,
+              "end_seconds": 0.47,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第2击刀路判定与突进窗口",
+              "time_seconds": 1.03,
+              "end_seconds": 1.24,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第3击刀路判定与突进窗口",
+              "time_seconds": 1.93,
+              "end_seconds": 2.14,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "砸地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.bladeContact",
+              "note": "第三击有效窗口内刀路实际撞到方块顶面；不是固定秒数，A 上挑不应强行配砸地"
+            }
+          ],
+          "keyframe_count": 14742,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.4,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -1.4,
+            -24.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            -24.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "战斗_B_合手蓄力双刀砸地",
+          "uuid": "588556d3-1750-4820-9676-8706696440dc",
+          "length_seconds": 3.4,
+          "loop": "hold",
+          "purpose": "前两击斩击，第三击双刀蓄力砸地",
+          "start_pose": "双刀战斗准备",
+          "end_pose": "第三击收势后的持刀姿态",
+          "entry": "同阶段持刀待机/追击/恢复",
+          "exit": "恢复混合 → 同阶段持刀待机/追击/下一连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 3.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "第1击刀路判定与突进窗口",
+              "time_seconds": 0.3,
+              "end_seconds": 0.47,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第2击刀路判定与突进窗口",
+              "time_seconds": 1.03,
+              "end_seconds": 1.24,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第3击刀路判定与突进窗口",
+              "time_seconds": 2.34,
+              "end_seconds": 2.51,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "砸地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.bladeContact",
+              "note": "第三击有效窗口内刀路实际撞到方块顶面；不是固定秒数，A 上挑不应强行配砸地"
+            }
+          ],
+          "keyframe_count": 16146,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.4,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -1.4,
+            -20.5
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            -20.5
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "双刀_单手侧向快挥_左侧",
+          "uuid": "d0ea5dcf-8513-4ad1-a6e6-5bb3c0415bd8",
+          "length_seconds": 0.86,
+          "loop": "once",
+          "purpose": "第一阶段单手双刀侧切，应对侧面经过的目标",
+          "start_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "end_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "entry": "持刀待机/追击",
+          "exit": "持刀待机/追击/连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.86,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "侧切有效刀路",
+              "time_seconds": 0.19,
+              "end_seconds": 0.32,
+              "basis": "code",
+              "source": "SideIntercept.start/end",
+              "note": "右侧片段仅 R 刀，左侧仅 L 刀"
+            },
+            {
+              "name": "停止追加朝向校正",
+              "time_seconds": 0.165,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "SideIntercept.canTurn",
+              "note": "素材秒；不是攻击冷却"
+            }
+          ],
+          "keyframe_count": 2405,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.4,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -1.4,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "双刀_单手侧向快挥_右侧",
+          "uuid": "a4b05db7-a846-4362-9024-c72dd8cd743e",
+          "length_seconds": 0.86,
+          "loop": "once",
+          "purpose": "第一阶段单手双刀侧切，应对侧面经过的目标",
+          "start_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "end_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "entry": "持刀待机/追击",
+          "exit": "持刀待机/追击/连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.86,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "侧切有效刀路",
+              "time_seconds": 0.19,
+              "end_seconds": 0.32,
+              "basis": "code",
+              "source": "SideIntercept.start/end",
+              "note": "右侧片段仅 R 刀，左侧仅 L 刀"
+            },
+            {
+              "name": "停止追加朝向校正",
+              "time_seconds": 0.165,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "SideIntercept.canTurn",
+              "note": "素材秒；不是攻击冷却"
+            }
+          ],
+          "keyframe_count": 2405,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -1.4,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -1.4,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "双刀_收刀同步接近_至松柄",
+          "uuid": "783d03d4-f910-4d6d-8a94-97882a9c6093",
+          "length_seconds": 1.2,
+          "loop": "once",
+          "purpose": "持刀追击转攀爬：收刀时同步向墙靠近",
+          "start_pose": "双刀战斗准备",
+          "end_pose": "刀已回背挂、双手仍在高位，腿已接近墙",
+          "entry": "同阶段持刀待机/追击",
+          "exit": "攀爬_高位落手抓墙_末步踩墙，不要先放手到身侧再重新抬手",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.2,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "收刀靠墙片段结束/转落手",
+              "time_seconds": 1.2,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance SHEATHE→REACH",
+              "note": "REACH 入口 wallDrawn(false)；终点不是手已完全放下"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 4163,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            18.0
+          ],
+          "root_end_model_units": [
+            0.5898837,
+            -5.4,
+            5.3140169
+          ],
+          "root_delta_model_units": [
+            0.5898837,
+            -5.4,
+            -12.6859831
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.34473,
+                  1.10046
+                ]
+              ],
+              "max_abs_degrees": 57.99731
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.34473,
+                  1.10046
+                ]
+              ],
+              "max_abs_degrees": 57.99731
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.34473,
+                  1.10046
+                ]
+              ],
+              "max_abs_degrees": 57.99731
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.34473,
+                  1.10046
+                ]
+              ],
+              "max_abs_degrees": 57.99731
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "攀爬_高位落手抓墙_末步踩墙",
+          "uuid": "2cb6bca1-e029-4715-a9b3-46aabe511c73",
+          "length_seconds": 0.64,
+          "loop": "once",
+          "purpose": "承接收刀高举手，顺势落手抓墙并末步踩墙",
+          "start_pose": "背刀、手在高位、末步接近墙",
+          "end_pose": "双手抓墙、腿承重，准备第一步或翻顶",
+          "entry": "双刀_收刀同步接近_至松柄 / 空手靠墙（需入口混合）",
+          "exit": "攀爬_首步连续抬膝_仅起爬使用 或 攀爬_架膝踩稳蹬起翻顶",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.64,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "抓墙准备完成/选首步或翻顶",
+              "time_seconds": 0.64,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance REACH",
+              "note": "小高度可直接TOP；抓点必须世界碰撞验证，不能据终点强行吸附"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 1814,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.5898837,
+            -5.4,
+            5.3140169
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            -0.5898837,
+            5.4,
+            -8.1140169
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "攀爬_抬头垂直循环",
+          "uuid": "4e71945a-5312-42c4-97a4-ff8fba7b13f8",
+          "length_seconds": 1.6,
+          "loop": "loop",
+          "purpose": "持续垂直攀爬，抬头看目标、身体适度后仰",
+          "start_pose": "交替攀爬的同一循环相位",
+          "end_pose": "交替攀爬的同一循环相位",
+          "entry": "攀爬_首步连续抬膝_仅起爬使用 / 自身循环",
+          "exit": "自身循环 / 攀爬_架膝踩稳蹬起翻顶 / 支点失效恢复",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "循环结束/检查顶沿",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.climbNext",
+              "note": "每周期现有世界上升最多1.35格、末段裁到剩余高度；不是模型根Y累积"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3306,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "攀爬_架膝踩稳蹬起翻顶",
+          "uuid": "c05be2a1-d12c-4a1c-bcdd-1b1e21fe5dc9",
+          "length_seconds": 3.36,
+          "loop": "once",
+          "purpose": "膝盖先架住顶沿、蹬起翻顶、站起双臂顺势落在两侧",
+          "start_pose": "墙面高位支撑、刀在背挂",
+          "end_pose": "屋顶站立、刀仍在背挂、双手在身侧略张",
+          "entry": "攀爬_首步连续抬膝_仅起爬使用 / 攀爬_抬头垂直循环 / 低墙 攀爬_高位落手抓墙_末步踩墙",
+          "exit": "双刀_攀爬登顶再拔刀",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 3.36,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "碰撞箱先上升段结束",
+              "time_seconds": 1.4112,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick TOP",
+              "note": "0.42×3.36；只是代码空间路径分段，不是膝盖落点"
+            },
+            {
+              "name": "碰撞箱越沿段结束",
+              "time_seconds": 3.024,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick TOP",
+              "note": "(0.42+0.48)×3.36，真实支撑仍须校验"
+            },
+            {
+              "name": "翻顶完成/再拔刀",
+              "time_seconds": 3.36,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance TOP",
+              "note": "站稳后进入DRAW；不能在空中直接设置武器已拔出"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 8126,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            35.75,
+            -25.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            35.75,
+            -22.2
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "双刀_攀爬登顶再拔刀",
+          "uuid": "6eca1b88-d604-49a9-8094-a4bd36af997e",
+          "length_seconds": 1.37778,
+          "loop": "once",
+          "purpose": "攀爬登顶后重新拔刀",
+          "start_pose": "屋顶站立、背刀、手在身侧",
+          "end_pose": "双刀握稳",
+          "entry": "攀爬_架膝踩稳蹬起翻顶",
+          "exit": "同阶段持刀待机/追击/攻击，经恢复混合",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.37778,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "拔刀及握持转换完成",
+              "time_seconds": 1.37778,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance DRAW",
+              "note": "末端 wallDrawn(true)；phase2后段辅手归位未完成前不可当双手已握稳"
+            }
+          ],
+          "keyframe_count": 2753,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.41068,
+                  0.9671
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.41068,
+                  0.9671
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.41068,
+                  0.9671
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_R_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.41068,
+                  0.9671
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "攀爬_首步连续抬膝_仅起爬使用",
+          "uuid": "cc30bf51-b4a8-4d8f-8107-52f4f70df956",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "起爬首步，左腿顺势连续抬膝，避免小回收",
+          "start_pose": "抓墙预备",
+          "end_pose": "完成首步，返回可继续攀爬的支撑相位",
+          "entry": "攀爬_高位落手抓墙_末步踩墙 / 下坠_抓稳检查_待命",
+          "exit": "攀爬_抬头垂直循环 或 攀爬_架膝踩稳蹬起翻顶",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "首步完成/下一攀爬段",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance FIRST",
+              "note": "仅首次，不要每循环重播；根位移转世界位移一次"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3274,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            12.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            12.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_空手抢抓_左手先承重",
+          "uuid": "dada7c3b-c671-47b3-9bea-7b36c5c42362",
+          "length_seconds": 1.4,
+          "loop": "once",
+          "purpose": "空手下坠时左手先抢支点、右手和腿跟上承重",
+          "start_pose": "刀在背挂、下坠伸手",
+          "end_pose": "双手抓稳，身体止坠",
+          "entry": "空手下坠；需可抓握面且空间足够",
+          "exit": "下坠_抓稳检查_待命",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "向抓墙站位对齐的代码结束",
+              "time_seconds": 0.75,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick CATCH",
+              "note": "不是首手触墙帧；实际抓点接触需验证"
+            },
+            {
+              "name": "抓稳检查入口",
+              "time_seconds": 1.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance CATCH",
+              "note": ""
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 2790,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            5.0,
+            1.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -5.0,
+            -3.8
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_抓稳检查_待命",
+          "uuid": "387d0e12-8235-4b9f-a6d2-930c70d57924",
+          "length_seconds": 0.4,
+          "loop": "loop",
+          "purpose": "抢抓后短暂停留，判断能否继续向上",
+          "start_pose": "双手抓稳墙面",
+          "end_pose": "双手抓稳墙面",
+          "entry": "下坠_空手抢抓_左手先承重",
+          "exit": "攀爬_首步连续抬膝_仅起爬使用（当前代码）或 下坠_无路松手_蹬离墙面",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "检查可继续攀爬",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick HOLD",
+              "note": "当前运行时锁定素材t=0，等待状态0.4s；不是反复播呼吸循环"
+            }
+          ],
+          "keyframe_count": 136,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_无路松手_蹬离墙面",
+          "uuid": "95026940-8311-432c-8aa9-f740b4ab94b4",
+          "length_seconds": 0.85,
+          "loop": "once",
+          "purpose": "没有向上路线时松手蹬离墙面，接真实下落",
+          "start_pose": "空手支撑墙面",
+          "end_pose": "已脱离墙体、向外下落姿势",
+          "entry": "下坠_抓稳检查_待命 / 攀爬失败",
+          "exit": "FALL（真实重力）→ 实际着地恢复或再次抢抓",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.85,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "松手动作完成/恢复下落阶段",
+              "time_seconds": 0.85,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance RELEASE",
+              "note": "不能在计时结束时假定已落地"
+            }
+          ],
+          "keyframe_count": 1853,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            -8.0,
+            5.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -8.0,
+            7.8
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_抓稳后继续攀爬",
+          "uuid": "d2f1bb63-03aa-45e8-b921-e58c955ecf9d",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "抓稳后恢复攀爬的备用周期片段",
+          "start_pose": "抓稳墙面的攀爬循环相位",
+          "end_pose": "抓稳墙面的攀爬循环相位",
+          "entry": "下坠_抓稳检查_待命",
+          "exit": "攀爬_抬头垂直循环 / 攀爬_架膝踩稳蹬起翻顶",
+          "status": "无生产调用；当前 HOLD→FIRST。素材保留，不必为用满动画增加额外1.6s等待。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3321,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_持刀80度猛刺_下滑制动",
+          "uuid": "8bd5f026-09f8-4131-a6cd-9df9fe1ee3c8",
+          "length_seconds": 1.35,
+          "loop": "once",
+          "purpose": "持刀下坠向墙猛刺并下滑制动",
+          "start_pose": "手持刀下坠，刀指向墙面法线",
+          "end_pose": "刀插在墙中、脚踩稳、身体抬头支撑",
+          "entry": "持刀下坠且有实际墙面",
+          "exit": "下坠_插刀稳身_待命",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.35,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "刺墙对齐代码阶段结束",
+              "time_seconds": 0.5,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "刀须近垂直墙面；模型局部位移不能直接当世界抓点"
+            },
+            {
+              "name": "重新确认支撑",
+              "time_seconds": 0.65,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "t>0.65 且没有抓点时退出；非固定稳定保证"
+            },
+            {
+              "name": "普通刀刺墙声音/火星",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "建议仅真实刀尖接触时一次触发，r62模型无事件，不新增伤害判定"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 2836,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            6.0,
+            28.7819782
+          ],
+          "root_end_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -10.0,
+            -26.7819782
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_插刀稳身_待命",
+          "uuid": "2bd6d2ed-087a-46b7-8178-27f604695168",
+          "length_seconds": 0.4,
+          "loop": "loop",
+          "purpose": "刀插墙后踩稳等待，维持刀的墙面方向",
+          "start_pose": "持刀撑墙、双脚承重",
+          "end_pose": "持刀撑墙、双脚承重",
+          "entry": "下坠_持刀80度猛刺_下滑制动",
+          "exit": "下坠_蹬墙拧腰_借力拔刀脱离",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "稳身结束→蹬墙拔刀",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick BRACE",
+              "note": "当前素材采样锁在0，状态等待0.4s；丢失支点走EXTRACT"
+            }
+          ],
+          "keyframe_count": 136,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_蹬墙拧腰_借力拔刀脱离",
+          "uuid": "0fa5616e-4782-48fa-a658-112d0ef7303d",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "蹬墙借力，腰腹带动手臂把刀拔出，再放松下落",
+          "start_pose": "刀插墙、脚踩稳",
+          "end_pose": "刀已离墙，身体后撤下坠，手臂自然放松",
+          "entry": "下坠_插刀稳身_待命",
+          "exit": "真实下落/着地恢复；不能直接瞬移到站立",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "离墙拔刀动作结束",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance EXTRACT",
+              "note": "结束wall状态，重新交给移动系统；拔出瞬间无模型事件，需刀尖/墙面接触边沿确认"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3964,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -18.36,
+            40.6
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -14.36,
+            38.6
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_红刀80度猛刺_长距离削墙滑降",
+          "uuid": "6eeb5f8d-d046-43cd-be04-94a8cc24a9af",
+          "length_seconds": 2.15,
+          "loop": "once",
+          "purpose": "红刀刺墙后较长距离削墙滑降",
+          "start_pose": "手持刀下坠，刀指向墙面法线",
+          "end_pose": "刀插在墙中、脚踩稳、身体抬头支撑",
+          "entry": "持刀下坠且有实际墙面",
+          "exit": "下坠_红刀滑降稳身_待命",
+          "status": "素材保留；共用代码含红刀分支，但 redReady 要求 phase2，第一阶段正常流程不会选择此片段。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 2.15,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "刺墙对齐代码阶段结束",
+              "time_seconds": 0.5,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "刀须近垂直墙面；模型局部位移不能直接当世界抓点"
+            },
+            {
+              "name": "重新确认支撑",
+              "time_seconds": 0.65,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "t>0.65 且没有抓点时退出；非固定稳定保证"
+            },
+            {
+              "name": "红刀接触破块请求",
+              "time_seconds": 0.42,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "一次性 cut；仅 BladeCombat.wallContact 真实接触且配置允许时，不能整面墙自动清空"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 4213,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            6.0,
+            28.7819782
+          ],
+          "root_end_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -36.0,
+            -26.7819782
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "下坠_红刀滑降稳身_待命",
+          "uuid": "57060ecd-ed37-4615-b636-901557e54ee0",
+          "length_seconds": 0.4,
+          "loop": "loop",
+          "purpose": "刀插墙后踩稳等待，维持刀的墙面方向",
+          "start_pose": "持刀撑墙、双脚承重",
+          "end_pose": "持刀撑墙、双脚承重",
+          "entry": "下坠_红刀80度猛刺_长距离削墙滑降",
+          "exit": "红刀_下坠_蹬墙拧腰_借力拔刀脱离",
+          "status": "素材保留；共用代码含红刀分支，但 redReady 要求 phase2，第一阶段正常流程不会选择此片段。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "稳身结束→蹬墙拔刀",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick BRACE",
+              "note": "当前素材采样锁在0，状态等待0.4s；丢失支点走EXTRACT"
+            }
+          ],
+          "keyframe_count": 136,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "红刀_下坠_蹬墙拧腰_借力拔刀脱离",
+          "uuid": "1b7f6f0d-a3a7-4a74-88a2-c3681123e3ba",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "蹬墙借力，腰腹带动手臂把刀拔出，再放松下落",
+          "start_pose": "刀插墙、脚踩稳",
+          "end_pose": "刀已离墙，身体后撤下坠，手臂自然放松",
+          "entry": "下坠_红刀滑降稳身_待命",
+          "exit": "真实下落/着地恢复；不能直接瞬移到站立",
+          "status": "素材保留；共用代码含红刀分支，但 redReady 要求 phase2，第一阶段正常流程不会选择此片段。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "离墙拔刀动作结束",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance EXTRACT",
+              "note": "结束wall状态，重新交给移动系统；拔出瞬间无模型事件，需刀尖/墙面接触边沿确认"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3962,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -44.36,
+            40.6
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -14.36,
+            38.6
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "跳跃_压身蹬地",
+          "uuid": "722c0ace-fbe4-4152-a63a-41e9fe6d1752",
+          "length_seconds": 0.32,
+          "loop": "once",
+          "purpose": "追击跳跃的压身蓄力蹬地",
+          "start_pose": "同阶段持刀准备",
+          "end_pose": "完成蹬地的离地姿态",
+          "entry": "持刀追击且已算出安全落点",
+          "exit": "跳跃_腾空收腿",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "实际起跳速度提交",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "PursuitJump.tick PREP",
+              "note": "再次验证目标、落点与弧线后设置真实速度；不是动画根位移重复推动"
+            }
+          ],
+          "keyframe_count": 1067,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "跳跃_腾空收腿",
+          "uuid": "2ef51015-d7f0-4348-92f1-e0834e2389a2",
+          "length_seconds": 0.9,
+          "loop": "once",
+          "purpose": "跳跃在空中收腿，维持持刀姿态",
+          "start_pose": "刚起跳",
+          "end_pose": "准备落地的腾空末姿",
+          "entry": "跳跃_压身蹬地",
+          "exit": "跳跃_落地缓冲（由实际onGround触发）",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.9,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "触地→落地动画",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "PursuitJump.tick AIR",
+              "note": "真实onGround且airTicks>1；0.9s仅素材长度，飞行更久时持末帧"
+            }
+          ],
+          "keyframe_count": 2817,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "跳跃_落地缓冲",
+          "uuid": "159b72ed-79fc-402c-bb7c-84d4e108769f",
+          "length_seconds": 0.43,
+          "loop": "once",
+          "purpose": "真实着地后屈膝缓冲、双臂略展开，再恢复压迫姿态",
+          "start_pose": "双脚接地后的屈膝入口",
+          "end_pose": "同阶段持刀准备",
+          "entry": "跳跃_腾空收腿 的真实落地",
+          "exit": "持刀追击/待机/攻击恢复",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.43,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "真实落地/落地声音与尘土",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "PursuitJump.tick AIR→LAND",
+              "note": "0为进入LAND后的本地时间；音效须接地一次性触发"
+            },
+            {
+              "name": "落地缓冲结束",
+              "time_seconds": 0.43,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "PursuitJump.tick LAND",
+              "note": ""
+            }
+          ],
+          "keyframe_count": 1417,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.7,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase1",
+          "file": "model-source/phase1.bbmodel",
+          "name": "跳跃_完整审阅",
+          "uuid": "ec5be187-9a80-474d-af22-bc6a4b14e14f",
+          "length_seconds": 1.65,
+          "loop": "once",
+          "purpose": "起跳→腾空→落地的固定时长审阅合辑",
+          "start_pose": "持刀准备",
+          "end_pose": "落地恢复持刀",
+          "entry": "仅展示",
+          "exit": "仅展示",
+          "status": "审阅合辑；PursuitJump.clip会识别名称，但真实跳跃状态机只选三个分段，不宜整段硬播。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.65,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "展示起跳分段点",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "asset-derived",
+              "source": "",
+              "note": "不是世界离地保证"
+            },
+            {
+              "name": "展示落地分段点",
+              "time_seconds": 1.22,
+              "end_seconds": null,
+              "basis": "asset-derived",
+              "source": "",
+              "note": "0.32+0.9；真实游戏不能按此强制落地"
+            }
+          ],
+          "keyframe_count": 5067,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        }
+      ]
+    },
+    {
+      "phase": "phase2",
+      "sha256": "4bbea38708527b25217763080c07d2edc4ed47c0ce53f6746ebec9ae0bcf1357",
+      "groups": 46,
+      "elements": 185,
+      "animation_count": 26,
+      "animations": [
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "二阶段_踉跄单手_站直换侧双手立刀",
+          "uuid": "95dd8690-98f2-4065-937c-aa060acc2b12",
+          "length_seconds": 6.0,
+          "loop": "hold",
+          "purpose": "由完整机甲受击踉跄、掉一把刀，进入战损第二阶段",
+          "start_pose": "受击前双刀姿态经当前姿势混合",
+          "end_pose": "站直侧身、双手握 L 单刀柄，刀立在身体另一侧",
+          "entry": "phase1 当前战斗姿态（r62 前 0.22s 姿势混合）",
+          "exit": "二阶段_侧身双手立刀_待机（握稳停顿和红刃蓄能后）",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 6.0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "脱落 背挂武士刀_R",
+              "time_seconds": 0.65,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_半面罩",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_肩甲外板",
+              "time_seconds": 0.38,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_胸甲边角",
+              "time_seconds": 0.42,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_胫甲缺角",
+              "time_seconds": 0.24,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_左腿正面披甲",
+              "time_seconds": 0.29,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_右侧裙甲",
+              "time_seconds": 0.36,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "脱落 脱落_前裙外片",
+              "time_seconds": 0.34,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "DebrisGeometry.RELEASE",
+              "note": "本体隐藏和实体生成必须同一权威事件，详见脱落交接"
+            },
+            {
+              "name": "双手最终握稳",
+              "time_seconds": 6.0,
+              "end_seconds": null,
+              "basis": "asset+code",
+              "source": "RedBladeTiming.gripTicks",
+              "note": "片段终姿"
+            },
+            {
+              "name": "红刃开始渐亮",
+              "time_seconds": 6.2,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "RedBladeTiming",
+              "note": "时间为转阶段状态时间，超出素材6秒；末帧保持0.2s后"
+            },
+            {
+              "name": "红刃蓄能完成",
+              "time_seconds": 7.1,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "RedBladeTiming",
+              "note": "18tick/0.9s渐变，非瞬间变红"
+            }
+          ],
+          "keyframe_count": 33212,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "二阶段_侧身双手立刀_待机",
+          "uuid": "e53a4f8d-26ad-48a2-82cd-758b0f2dce80",
+          "length_seconds": 1.0,
+          "loop": "loop",
+          "purpose": "第二阶段双手单刀待机",
+          "start_pose": "侧身双手立刀",
+          "end_pose": "侧身双手立刀",
+          "entry": "转阶段完成/单刀攻击恢复/登顶再拔刀",
+          "exit": "负重行走/三连/侧切/收刀靠墙",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            }
+          ],
+          "keyframe_count": 192,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "二阶段_双手立刀_负重行走",
+          "uuid": "c66eda82-617a-4e51-a438-3a8ba28fac96",
+          "length_seconds": 1.45,
+          "loop": "loop",
+          "purpose": "第二阶段双手持刀负重追击",
+          "start_pose": "低重心侧身持刀循环步态",
+          "end_pose": "低重心侧身持刀循环步态",
+          "entry": "二阶段_侧身双手立刀_待机",
+          "exit": "待机/三连/侧切/收刀靠墙，步态由实移距离驱动",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.45,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 9208,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -2.58,
+            10.23
+          ],
+          "root_end_model_units": [
+            0.0,
+            -2.58,
+            10.23
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "二阶段_双手三连_斜劈横斩突进重劈",
+          "uuid": "ad7cc7f7-4348-4d9e-b7dd-f7ef9d0eda70",
+          "length_seconds": 3.825,
+          "loop": "hold",
+          "purpose": "前两击斩击，第三击双手单刀突进重劈",
+          "start_pose": "双手单刀侧身准备",
+          "end_pose": "第三击收势后的持刀姿态",
+          "entry": "同阶段持刀待机/追击/恢复",
+          "exit": "恢复混合 → 同阶段持刀待机/追击/下一连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 3.825,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "第1击刀路判定与突进窗口",
+              "time_seconds": 0.424,
+              "end_seconds": 0.625,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第2击刀路判定与突进窗口",
+              "time_seconds": 1.161,
+              "end_seconds": 1.394,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第3击刀路判定与突进窗口",
+              "time_seconds": 2.385,
+              "end_seconds": 2.56,
+              "basis": "code",
+              "source": "CombatTiming.windows / AttackExecution.combo",
+              "note": "现有代码值，不是模型事件；须真实扫掠接触才伤害；挥刀音效在首次执行此击时"
+            },
+            {
+              "name": "第三击红刀预警",
+              "time_seconds": 1.985,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "SamuraiEntity.attackTick / CombatFeedback.heavyWarning",
+              "note": "第三击起点减 0.4s；红刀就绪条件下"
+            },
+            {
+              "name": "砸地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.bladeContact",
+              "note": "第三击有效窗口内刀路实际撞到方块顶面；不是固定秒数，A 上挑不应强行配砸地"
+            }
+          ],
+          "keyframe_count": 40396,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.395,
+            -13.27
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            -23.5
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "单刀_松辅手侧向快挥_左侧",
+          "uuid": "4a90c897-8aa2-4fa7-ac16-d4e674888874",
+          "length_seconds": 0.96,
+          "loop": "once",
+          "purpose": "第二阶段松辅助手、主手单刀侧切，应对侧面经过的目标",
+          "start_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "end_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "entry": "持刀待机/追击",
+          "exit": "持刀待机/追击/连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.96,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "侧切有效刀路",
+              "time_seconds": 0.24,
+              "end_seconds": 0.37,
+              "basis": "code",
+              "source": "SideIntercept.start/end",
+              "note": "两侧片段均为 L 主刀；右手是辅助，不复制第二把刀"
+            },
+            {
+              "name": "停止追加朝向校正",
+              "time_seconds": 0.215,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "SideIntercept.canTurn",
+              "note": "素材秒；不是攻击冷却"
+            }
+          ],
+          "keyframe_count": 2806,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "单刀_松辅手侧向快挥_右侧",
+          "uuid": "812e40fb-04cd-45c3-8c25-c3251c29d87a",
+          "length_seconds": 0.96,
+          "loop": "once",
+          "purpose": "第二阶段松辅助手、主手单刀侧切，应对侧面经过的目标",
+          "start_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "end_pose": "同阶段持刀准备姿态（结束后接恢复混合）",
+          "entry": "持刀待机/追击",
+          "exit": "持刀待机/追击/连招",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.96,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "侧切有效刀路",
+              "time_seconds": 0.24,
+              "end_seconds": 0.37,
+              "basis": "code",
+              "source": "SideIntercept.start/end",
+              "note": "两侧片段均为 L 主刀；右手是辅助，不复制第二把刀"
+            },
+            {
+              "name": "停止追加朝向校正",
+              "time_seconds": 0.215,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "SideIntercept.canTurn",
+              "note": "素材秒；不是攻击冷却"
+            }
+          ],
+          "keyframe_count": 2806,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.395,
+            10.23
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "单刀_收刀同步接近_至松柄",
+          "uuid": "004066c8-8f02-4c3e-8d2c-6ba937f84676",
+          "length_seconds": 1.72,
+          "loop": "once",
+          "purpose": "持刀追击转攀爬：收刀时同步向墙靠近",
+          "start_pose": "侧身双手单刀准备，先处理辅助手",
+          "end_pose": "刀已回背挂、双手仍在高位，腿已接近墙",
+          "entry": "同阶段持刀待机/追击",
+          "exit": "攀爬_高位落手抓墙_末步踩墙，不要先放手到身侧再重新抬手",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.72,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "收刀靠墙片段结束/转落手",
+              "time_seconds": 1.72,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance SHEATHE→REACH",
+              "note": "REACH 入口 wallDrawn(false)；终点不是手已完全放下"
+            },
+            {
+              "name": "左右脚接地音效/尘土",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "CombatFeedback.footsteps / FootPlantTracker.sample",
+              "note": "没有固定秒数。phase1离地后净空<0.025格；phase2脚前摆转后支撑且净空<0.09格，均须真实地面。仅素材相位不足以触发。"
+            }
+          ],
+          "keyframe_count": 5482,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.395,
+            18.0
+          ],
+          "root_end_model_units": [
+            0.5898837,
+            -5.4,
+            6.6340169
+          ],
+          "root_delta_model_units": [
+            0.5898837,
+            -5.005,
+            -11.3659831
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.86473,
+                  1.62046
+                ]
+              ],
+              "max_abs_degrees": 57.99731
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.86473,
+                  1.62046
+                ]
+              ],
+              "max_abs_degrees": 57.99731
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "攀爬_高位落手抓墙_末步踩墙",
+          "uuid": "b3404982-ecd3-444b-950e-b3402d359a60",
+          "length_seconds": 0.64,
+          "loop": "once",
+          "purpose": "承接收刀高举手，顺势落手抓墙并末步踩墙",
+          "start_pose": "背刀、手在高位、末步接近墙",
+          "end_pose": "双手抓墙、腿承重，准备第一步或翻顶",
+          "entry": "单刀_收刀同步接近_至松柄 / 空手靠墙（需入口混合）",
+          "exit": "攀爬_首步连续抬膝_仅起爬使用 或 攀爬_架膝踩稳蹬起翻顶",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.64,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "抓墙准备完成/选首步或翻顶",
+              "time_seconds": 0.64,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance REACH",
+              "note": "小高度可直接TOP；抓点必须世界碰撞验证，不能据终点强行吸附"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 1685,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.5898837,
+            -5.4,
+            6.6340169
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            -0.5898837,
+            5.4,
+            -9.4340169
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "攀爬_抬头垂直循环",
+          "uuid": "100dc555-2d9a-48b2-a4ee-26ac8cc7cc08",
+          "length_seconds": 1.6,
+          "loop": "loop",
+          "purpose": "持续垂直攀爬，抬头看目标、身体适度后仰",
+          "start_pose": "交替攀爬的同一循环相位",
+          "end_pose": "交替攀爬的同一循环相位",
+          "entry": "攀爬_首步连续抬膝_仅起爬使用 / 自身循环",
+          "exit": "自身循环 / 攀爬_架膝踩稳蹬起翻顶 / 支点失效恢复",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "循环结束/检查顶沿",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.climbNext",
+              "note": "每周期现有世界上升最多1.35格、末段裁到剩余高度；不是模型根Y累积"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3314,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "攀爬_架膝踩稳蹬起翻顶",
+          "uuid": "e8595dc6-ba6a-4959-b509-642dde2b1ca8",
+          "length_seconds": 3.36,
+          "loop": "once",
+          "purpose": "膝盖先架住顶沿、蹬起翻顶、站起双臂顺势落在两侧",
+          "start_pose": "墙面高位支撑、刀在背挂",
+          "end_pose": "屋顶站立、刀仍在背挂、双手在身侧略张",
+          "entry": "攀爬_首步连续抬膝_仅起爬使用 / 攀爬_抬头垂直循环 / 低墙 攀爬_高位落手抓墙_末步踩墙",
+          "exit": "单刀_攀爬登顶再拔刀",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 3.36,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "碰撞箱先上升段结束",
+              "time_seconds": 1.4112,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick TOP",
+              "note": "0.42×3.36；只是代码空间路径分段，不是膝盖落点"
+            },
+            {
+              "name": "碰撞箱越沿段结束",
+              "time_seconds": 3.024,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick TOP",
+              "note": "(0.42+0.48)×3.36，真实支撑仍须校验"
+            },
+            {
+              "name": "翻顶完成/再拔刀",
+              "time_seconds": 3.36,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance TOP",
+              "note": "站稳后进入DRAW；不能在空中直接设置武器已拔出"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 7759,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            35.75,
+            -25.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            35.75,
+            -22.2
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "单刀_攀爬登顶再拔刀",
+          "uuid": "53f44da2-9ad1-4118-9c5b-c2822d21500e",
+          "length_seconds": 1.89778,
+          "loop": "once",
+          "purpose": "攀爬登顶后重新拔刀并接回双手单刀立刀",
+          "start_pose": "屋顶站立、背刀、手在身侧",
+          "end_pose": "双手单刀立刀握稳",
+          "entry": "攀爬_架膝踩稳蹬起翻顶",
+          "exit": "同阶段持刀待机/追击/攻击，经恢复混合",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.89778,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "拔刀及握持转换完成",
+              "time_seconds": 1.89778,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance DRAW",
+              "note": "末端 wallDrawn(true)；phase2后段辅手归位未完成前不可当双手已握稳"
+            }
+          ],
+          "keyframe_count": 3187,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [
+            {
+              "bone": "夹鞘门_L_a",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.41068,
+                  0.9671
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            },
+            {
+              "bone": "夹鞘门_L_b",
+              "sampled_open_gt_1_degree": [
+                [
+                  0.41068,
+                  0.9671
+                ]
+              ],
+              "max_abs_degrees": 58.0
+            }
+          ],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "攀爬_首步连续抬膝_仅起爬使用",
+          "uuid": "e926e9b2-0a18-4fa9-96de-1cf9e94ebb03",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "起爬首步，左腿顺势连续抬膝，避免小回收",
+          "start_pose": "抓墙预备",
+          "end_pose": "完成首步，返回可继续攀爬的支撑相位",
+          "entry": "攀爬_高位落手抓墙_末步踩墙 / 下坠_抓稳检查_待命",
+          "exit": "攀爬_抬头垂直循环 或 攀爬_架膝踩稳蹬起翻顶",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "首步完成/下一攀爬段",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance FIRST",
+              "note": "仅首次，不要每循环重播；根位移转世界位移一次"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3283,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            -0.0,
+            12.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            -0.0,
+            12.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_空手抢抓_左手先承重",
+          "uuid": "86143140-fec3-4fcf-aa26-781afa911de3",
+          "length_seconds": 1.4,
+          "loop": "once",
+          "purpose": "空手下坠时左手先抢支点、右手和腿跟上承重",
+          "start_pose": "刀在背挂、下坠伸手",
+          "end_pose": "双手抓稳，身体止坠",
+          "entry": "空手下坠；需可抓握面且空间足够",
+          "exit": "下坠_抓稳检查_待命",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "向抓墙站位对齐的代码结束",
+              "time_seconds": 0.75,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick CATCH",
+              "note": "不是首手触墙帧；实际抓点接触需验证"
+            },
+            {
+              "name": "抓稳检查入口",
+              "time_seconds": 1.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance CATCH",
+              "note": ""
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 2798,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            5.0,
+            1.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -5.0,
+            -3.8
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_抓稳检查_待命",
+          "uuid": "c48c0e7f-e714-4438-a25b-4fbcdcd30af2",
+          "length_seconds": 0.4,
+          "loop": "loop",
+          "purpose": "抢抓后短暂停留，判断能否继续向上",
+          "start_pose": "双手抓稳墙面",
+          "end_pose": "双手抓稳墙面",
+          "entry": "下坠_空手抢抓_左手先承重",
+          "exit": "攀爬_首步连续抬膝_仅起爬使用（当前代码）或 下坠_无路松手_蹬离墙面",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "检查可继续攀爬",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick HOLD",
+              "note": "当前运行时锁定素材t=0，等待状态0.4s；不是反复播呼吸循环"
+            }
+          ],
+          "keyframe_count": 144,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_无路松手_蹬离墙面",
+          "uuid": "d8aaea8d-8d02-4d01-bee6-d71bd7ae6858",
+          "length_seconds": 0.85,
+          "loop": "once",
+          "purpose": "没有向上路线时松手蹬离墙面，接真实下落",
+          "start_pose": "空手支撑墙面",
+          "end_pose": "已脱离墙体、向外下落姿势",
+          "entry": "下坠_抓稳检查_待命 / 攀爬失败",
+          "exit": "FALL（真实重力）→ 实际着地恢复或再次抢抓",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.85,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "松手动作完成/恢复下落阶段",
+              "time_seconds": 0.85,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance RELEASE",
+              "note": "不能在计时结束时假定已落地"
+            }
+          ],
+          "keyframe_count": 1861,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            -8.0,
+            5.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -8.0,
+            7.8
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_抓稳后继续攀爬",
+          "uuid": "97a972c5-a5ff-4005-afd8-a50521e270f1",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "抓稳后恢复攀爬的备用周期片段",
+          "start_pose": "抓稳墙面的攀爬循环相位",
+          "end_pose": "抓稳墙面的攀爬循环相位",
+          "entry": "下坠_抓稳检查_待命",
+          "exit": "攀爬_抬头垂直循环 / 攀爬_架膝踩稳蹬起翻顶",
+          "status": "无生产调用；当前 HOLD→FIRST。素材保留，不必为用满动画增加额外1.6s等待。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3328,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            -2.8
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_持刀80度猛刺_下滑制动",
+          "uuid": "06926157-ed50-477c-9abc-29dffc978d87",
+          "length_seconds": 1.35,
+          "loop": "once",
+          "purpose": "持刀下坠向墙猛刺并下滑制动",
+          "start_pose": "手持刀下坠，刀指向墙面法线",
+          "end_pose": "刀插在墙中、脚踩稳、身体抬头支撑",
+          "entry": "持刀下坠且有实际墙面",
+          "exit": "下坠_插刀稳身_待命",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.35,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "刺墙对齐代码阶段结束",
+              "time_seconds": 0.5,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "刀须近垂直墙面；模型局部位移不能直接当世界抓点"
+            },
+            {
+              "name": "重新确认支撑",
+              "time_seconds": 0.65,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "t>0.65 且没有抓点时退出；非固定稳定保证"
+            },
+            {
+              "name": "普通刀刺墙声音/火星",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "建议仅真实刀尖接触时一次触发，r62模型无事件，不新增伤害判定"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 2761,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            6.0,
+            27.3255152
+          ],
+          "root_end_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -10.0,
+            -25.3255152
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_插刀稳身_待命",
+          "uuid": "67fc2024-e122-4c77-9678-e230a4a5c3e8",
+          "length_seconds": 0.4,
+          "loop": "loop",
+          "purpose": "刀插墙后踩稳等待，维持刀的墙面方向",
+          "start_pose": "持刀撑墙、双脚承重",
+          "end_pose": "持刀撑墙、双脚承重",
+          "entry": "下坠_持刀80度猛刺_下滑制动",
+          "exit": "下坠_蹬墙拧腰_借力拔刀脱离",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "稳身结束→蹬墙拔刀",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick BRACE",
+              "note": "当前素材采样锁在0，状态等待0.4s；丢失支点走EXTRACT"
+            }
+          ],
+          "keyframe_count": 144,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_蹬墙拧腰_借力拔刀脱离",
+          "uuid": "ab90b1b0-fd64-48eb-b4b0-a6c710944204",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "蹬墙借力，腰腹带动手臂把刀拔出，再放松下落",
+          "start_pose": "刀插墙、脚踩稳",
+          "end_pose": "刀已离墙，身体后撤下坠，手臂自然放松",
+          "entry": "下坠_插刀稳身_待命",
+          "exit": "真实下落/着地恢复；不能直接瞬移到站立",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "离墙拔刀动作结束",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance EXTRACT",
+              "note": "结束wall状态，重新交给移动系统；拔出瞬间无模型事件，需刀尖/墙面接触边沿确认"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3853,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -4.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -18.36,
+            40.6
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -14.36,
+            38.6
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_红刀80度猛刺_长距离削墙滑降",
+          "uuid": "ea70588f-38bc-4f58-8b17-45979731e3cc",
+          "length_seconds": 2.15,
+          "loop": "once",
+          "purpose": "红刀刺墙后较长距离削墙滑降",
+          "start_pose": "手持刀下坠，刀指向墙面法线",
+          "end_pose": "刀插在墙中、脚踩稳、身体抬头支撑",
+          "entry": "持刀下坠且有实际墙面",
+          "exit": "下坠_红刀滑降稳身_待命",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 2.15,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "刺墙对齐代码阶段结束",
+              "time_seconds": 0.5,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "刀须近垂直墙面；模型局部位移不能直接当世界抓点"
+            },
+            {
+              "name": "重新确认支撑",
+              "time_seconds": 0.65,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "t>0.65 且没有抓点时退出；非固定稳定保证"
+            },
+            {
+              "name": "红刀接触破块请求",
+              "time_seconds": 0.42,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick STAB",
+              "note": "一次性 cut；仅 BladeCombat.wallContact 真实接触且配置允许时，不能整面墙自动清空"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 4153,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            6.0,
+            27.3255152
+          ],
+          "root_end_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -36.0,
+            -25.3255152
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "下坠_红刀滑降稳身_待命",
+          "uuid": "b562c7ce-8e75-4d51-977f-21af44c7958c",
+          "length_seconds": 0.4,
+          "loop": "loop",
+          "purpose": "刀插墙后踩稳等待，维持刀的墙面方向",
+          "start_pose": "持刀撑墙、双脚承重",
+          "end_pose": "持刀撑墙、双脚承重",
+          "entry": "下坠_红刀80度猛刺_长距离削墙滑降",
+          "exit": "红刀_下坠_蹬墙拧腰_借力拔刀脱离",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "稳身结束→蹬墙拔刀",
+              "time_seconds": 0.4,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.tick BRACE",
+              "note": "当前素材采样锁在0，状态等待0.4s；丢失支点走EXTRACT"
+            }
+          ],
+          "keyframe_count": 144,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "loop_endpoint_comparison": {
+            "max_corner_distance_model_units": 0,
+            "scaled_blocks_at_0_1125": 0.0,
+            "worst_cube": "",
+            "visibility_changes": []
+          },
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "红刀_下坠_蹬墙拧腰_借力拔刀脱离",
+          "uuid": "b1f2991a-0bb5-4881-a340-ef39f2833d1e",
+          "length_seconds": 1.6,
+          "loop": "once",
+          "purpose": "蹬墙借力，腰腹带动手臂把刀拔出，再放松下落",
+          "start_pose": "刀插墙、脚踩稳",
+          "end_pose": "刀已离墙，身体后撤下坠，手臂自然放松",
+          "entry": "下坠_红刀滑降稳身_待命",
+          "exit": "真实下落/着地恢复；不能直接瞬移到站立",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "离墙拔刀动作结束",
+              "time_seconds": 1.6,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "WallTraversal.advance EXTRACT",
+              "note": "结束wall状态，重新交给移动系统；拔出瞬间无模型事件，需刀尖/墙面接触边沿确认"
+            },
+            {
+              "name": "手脚抓握/踩墙/膝盖触沿声",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "",
+              "note": "没有已嵌入的固定事件秒数；先用实际手脚位置与墙/顶沿接触验证，不能把root极值当接触帧。"
+            }
+          ],
+          "keyframe_count": 3853,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -30.0,
+            2.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -44.36,
+            40.6
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -14.36,
+            38.6
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "跳跃_压身蹬地",
+          "uuid": "a00caf10-c2cd-45f6-b08b-fe5f2f315803",
+          "length_seconds": 0.32,
+          "loop": "once",
+          "purpose": "追击跳跃的压身蓄力蹬地",
+          "start_pose": "同阶段持刀准备",
+          "end_pose": "完成蹬地的离地姿态",
+          "entry": "持刀追击且已算出安全落点",
+          "exit": "跳跃_腾空收腿",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "实际起跳速度提交",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "PursuitJump.tick PREP",
+              "note": "再次验证目标、落点与弧线后设置真实速度；不是动画根位移重复推动"
+            }
+          ],
+          "keyframe_count": 784,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "跳跃_腾空收腿",
+          "uuid": "1a380974-3e76-4e00-9844-9b960eeb6d23",
+          "length_seconds": 0.9,
+          "loop": "once",
+          "purpose": "跳跃在空中收腿，维持持刀姿态",
+          "start_pose": "刚起跳",
+          "end_pose": "准备落地的腾空末姿",
+          "entry": "跳跃_压身蹬地",
+          "exit": "跳跃_落地缓冲（由实际onGround触发）",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.9,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "触地→落地动画",
+              "time_seconds": null,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "PursuitJump.tick AIR",
+              "note": "真实onGround且airTicks>1；0.9s仅素材长度，飞行更久时持末帧"
+            }
+          ],
+          "keyframe_count": 1974,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "跳跃_落地缓冲",
+          "uuid": "e24e1501-4ff1-4476-a6b3-e9b6f3f25c62",
+          "length_seconds": 0.43,
+          "loop": "once",
+          "purpose": "真实着地后屈膝缓冲、双臂略展开，再恢复压迫姿态",
+          "start_pose": "双脚接地后的屈膝入口",
+          "end_pose": "同阶段持刀准备",
+          "entry": "跳跃_腾空收腿 的真实落地",
+          "exit": "持刀追击/待机/攻击恢复",
+          "status": "r62 基线已有运行时调用；本次仅补交接，不新增定稿或实机验收结论。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 0.43,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "真实落地/落地声音与尘土",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "conditional",
+              "source": "PursuitJump.tick AIR→LAND",
+              "note": "0为进入LAND后的本地时间；音效须接地一次性触发"
+            },
+            {
+              "name": "落地缓冲结束",
+              "time_seconds": 0.43,
+              "end_seconds": null,
+              "basis": "code",
+              "source": "PursuitJump.tick LAND",
+              "note": ""
+            }
+          ],
+          "keyframe_count": 1334,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            -0.7,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.7,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        },
+        {
+          "phase": "phase2",
+          "file": "model-source/phase2.bbmodel",
+          "name": "跳跃_完整审阅",
+          "uuid": "9cb218b7-7fb7-42a3-b0b9-20eb80feb7e1",
+          "length_seconds": 1.65,
+          "loop": "once",
+          "purpose": "起跳→腾空→落地的固定时长审阅合辑",
+          "start_pose": "持刀准备",
+          "end_pose": "落地恢复持刀",
+          "entry": "仅展示",
+          "exit": "仅展示",
+          "status": "审阅合辑；PursuitJump.clip会识别名称，但真实跳跃状态机只选三个分段，不宜整段硬播。",
+          "events": [
+            {
+              "name": "片段起点",
+              "time_seconds": 0,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "animations[].length / keyframes",
+              "note": ""
+            },
+            {
+              "name": "片段终点",
+              "time_seconds": 1.65,
+              "end_seconds": null,
+              "basis": "asset",
+              "source": "",
+              "note": "loop 在此回到 0；once/hold 的运行时结束由状态机决定"
+            },
+            {
+              "name": "展示起跳分段点",
+              "time_seconds": 0.32,
+              "end_seconds": null,
+              "basis": "asset-derived",
+              "source": "",
+              "note": "不是世界离地保证"
+            },
+            {
+              "name": "展示落地分段点",
+              "time_seconds": 1.22,
+              "end_seconds": null,
+              "basis": "asset-derived",
+              "source": "",
+              "note": "0.32+0.9；真实游戏不能按此强制落地"
+            }
+          ],
+          "keyframe_count": 4692,
+          "embedded_events": [],
+          "effect_track_count": 0,
+          "root_start_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_end_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "root_delta_model_units": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gate_intervals": [],
+          "changes": "本次无素材修改；新增交接文档与只读核验数据；骨骼名、层级、导出格式未变。"
+        }
+      ]
+    }
+  ],
+  "endpoint_joins": [
+    {
+      "phase": "phase1",
+      "from": "双刀_收刀同步接近_至松柄",
+      "to": "攀爬_高位落手抓墙_末步踩墙",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "katana_L_kissaki_point",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "攀爬_高位落手抓墙_末步踩墙",
+      "to": "攀爬_首步连续抬膝_仅起爬使用",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "攀爬_高位落手抓墙_末步踩墙",
+      "to": "攀爬_架膝踩稳蹬起翻顶",
+      "max_corner_distance_model_units": 8.442624,
+      "scaled_blocks_at_0_1125": 0.949795,
+      "worst_cube": "shin_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "攀爬_首步连续抬膝_仅起爬使用",
+      "to": "攀爬_抬头垂直循环",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "攀爬_抬头垂直循环",
+      "to": "攀爬_架膝踩稳蹬起翻顶",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "攀爬_架膝踩稳蹬起翻顶",
+      "to": "双刀_攀爬登顶再拔刀",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_R",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_空手抢抓_左手先承重",
+      "to": "下坠_抓稳检查_待命",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "forearm_plate_R",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_抓稳检查_待命",
+      "to": "攀爬_首步连续抬膝_仅起爬使用",
+      "max_corner_distance_model_units": 8.442624,
+      "scaled_blocks_at_0_1125": 0.949795,
+      "worst_cube": "shin_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_抓稳检查_待命",
+      "to": "下坠_抓稳后继续攀爬",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_抓稳后继续攀爬",
+      "to": "攀爬_抬头垂直循环",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_抓稳检查_待命",
+      "to": "下坠_无路松手_蹬离墙面",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_持刀80度猛刺_下滑制动",
+      "to": "下坠_插刀稳身_待命",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_插刀稳身_待命",
+      "to": "下坠_蹬墙拧腰_借力拔刀脱离",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_红刀80度猛刺_长距离削墙滑降",
+      "to": "下坠_红刀滑降稳身_待命",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "下坠_红刀滑降稳身_待命",
+      "to": "红刀_下坠_蹬墙拧腰_借力拔刀脱离",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "跳跃_压身蹬地",
+      "to": "跳跃_腾空收腿",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "跳跃_腾空收腿",
+      "to": "跳跃_落地缓冲",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "拔刀_提身上抽_双刀",
+      "to": "收刀_对准回插_双刀",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "行进拔刀_双刀低展压迫",
+      "to": "行进收刀_低展回插_双刀",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase1",
+      "from": "双刀_攀爬登顶再拔刀",
+      "to": "战斗_A_后摆拧腰滑步上挑",
+      "max_corner_distance_model_units": 19.244094,
+      "scaled_blocks_at_0_1125": 2.164961,
+      "worst_cube": "katana_L_kissaki_point",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "单刀_收刀同步接近_至松柄",
+      "to": "攀爬_高位落手抓墙_末步踩墙",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "katana_L_kissaki_point",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "攀爬_高位落手抓墙_末步踩墙",
+      "to": "攀爬_首步连续抬膝_仅起爬使用",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "攀爬_高位落手抓墙_末步踩墙",
+      "to": "攀爬_架膝踩稳蹬起翻顶",
+      "max_corner_distance_model_units": 8.442624,
+      "scaled_blocks_at_0_1125": 0.949795,
+      "worst_cube": "shin_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "攀爬_首步连续抬膝_仅起爬使用",
+      "to": "攀爬_抬头垂直循环",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "攀爬_抬头垂直循环",
+      "to": "攀爬_架膝踩稳蹬起翻顶",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "攀爬_架膝踩稳蹬起翻顶",
+      "to": "单刀_攀爬登顶再拔刀",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_R",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_空手抢抓_左手先承重",
+      "to": "下坠_抓稳检查_待命",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "damage_forearm_bare_edge_1",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_抓稳检查_待命",
+      "to": "攀爬_首步连续抬膝_仅起爬使用",
+      "max_corner_distance_model_units": 8.442624,
+      "scaled_blocks_at_0_1125": 0.949795,
+      "worst_cube": "shin_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_抓稳检查_待命",
+      "to": "下坠_抓稳后继续攀爬",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_抓稳后继续攀爬",
+      "to": "攀爬_抬头垂直循环",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_抓稳检查_待命",
+      "to": "下坠_无路松手_蹬离墙面",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_持刀80度猛刺_下滑制动",
+      "to": "下坠_插刀稳身_待命",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_插刀稳身_待命",
+      "to": "下坠_蹬墙拧腰_借力拔刀脱离",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_红刀80度猛刺_长距离削墙滑降",
+      "to": "下坠_红刀滑降稳身_待命",
+      "max_corner_distance_model_units": 0.0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "hand_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "下坠_红刀滑降稳身_待命",
+      "to": "红刀_下坠_蹬墙拧腰_借力拔刀脱离",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "跳跃_压身蹬地",
+      "to": "跳跃_腾空收腿",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "跳跃_腾空收腿",
+      "to": "跳跃_落地缓冲",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "二阶段_踉跄单手_站直换侧双手立刀",
+      "to": "二阶段_侧身双手立刀_待机",
+      "max_corner_distance_model_units": 0,
+      "scaled_blocks_at_0_1125": 0.0,
+      "worst_cube": "",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "单刀_攀爬登顶再拔刀",
+      "to": "二阶段_侧身双手立刀_待机",
+      "max_corner_distance_model_units": 4.810911,
+      "scaled_blocks_at_0_1125": 0.541228,
+      "worst_cube": "side_skirt_L",
+      "visibility_changes": []
+    },
+    {
+      "phase": "phase2",
+      "from": "二阶段_侧身双手立刀_待机",
+      "to": "二阶段_双手立刀_负重行走",
+      "max_corner_distance_model_units": 8.978752,
+      "scaled_blocks_at_0_1125": 1.01011,
+      "worst_cube": "katana_L_kissaki_point",
+      "visibility_changes": []
+    }
+  ]
+}
